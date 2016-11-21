@@ -1,0 +1,180 @@
+@import 'RipangaSlider';
+@import "./variables";
+
+$headHex: palette(gray, light);
+$groupHex: palette(gray, xlight);
+$borderHex: palette(gray, base);
+
+$bodyZ: 1;
+$headZ: 2;
+$stickyZ: 3;
+
+.ripanga-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.ripanga-head-container {
+  border: solid palette(gray, base);
+  border-width:1px 0 1px 1px;
+  cursor: default;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: $headZ;
+}
+
+.ripanga-body-container {
+  border: solid palette(gray, base);
+  border-width: 0 0 0 1px;
+  overflow: auto;
+  z-index: $bodyZ;
+}
+
+.ripanga-head {
+  background: palette(gray, light);
+
+  font-size: 11px;
+  table-layout: fixed;
+
+  th {
+    border-right: 1px solid palette(gray, base);
+    font-weight: bold;
+    line-height: 20px;
+    overflow: hidden;
+    padding: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .column-sort {
+    white-space: normal;
+  }
+
+  .sortable {
+    cursor: pointer;
+  }
+
+  .label {
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
+
+.ripanga-body {
+  position: relative;
+
+  td {
+    border-right: 1px solid palette(gray, base);
+    border-bottom: 1px solid palette(gray, base);
+    font-size: 11px;
+    padding: 10px;
+    position: relative;
+  }
+}
+
+.ripanga-group-row {
+  background: palette(gray, xlight);
+
+  .controls {
+    display: inline-block;
+    padding: 0 10px;
+  }
+
+  .title {
+    display: inline-block;
+  }
+
+  td {
+    padding: 0;
+    vertical-align:middle;
+  }
+}
+
+.ripanga-caret {
+  color: palette(gray, xdark);
+  cursor: pointer;
+  display: inline-block;
+  font-size:11px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  width: 20px;
+
+  &.closed,
+  &.disabled {
+    transform:rotate(-180deg);
+  }
+
+  &.disabled {
+    color: palette(gray, base);
+    pointer: not-allowed;
+  }
+}
+
+.ripanga-group-pane {
+  .inside {
+    height: 300px;
+    max-height: 300px;
+    transition: all 0.5s ease;
+  }
+
+  .hidden {
+    max-height: 0px;
+    overflow: hidden;
+  }
+}
+
+.ripanga-sticky-cell {
+  backround: red;
+  border: solid palette(gray, base);
+  border-width: 0 1px 1px 1px;
+  text-align:center;
+}
+
+.ripanga-sticky-cell-group {
+  composes: ripanga-sticky-cell;
+  background: palette(gray, xlight);
+  padding: 0;
+  text-align:right;
+}
+
+.ripanga-sticky-cell-head {
+  composes: ripanga-sticky-cell;
+  background: palette(gray, light);
+  border-top: 1px solid palette(gray, base);
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  z-index:$stickyZ;
+
+  .horizontal-scroller {
+    height: 14px;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: -7px;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    width:80px;
+  }
+}
+
+.ripanga-sticky-cell-pane {
+  border: solid palette(gray, base);
+  border-width: 0 0 0 1px;
+}
+
+.ripanga-sticky-container {
+  background: #fff;
+  border-top: 1px solid palette(gray, base);
+  position: absolute;
+  overflow: hidden;
+  right: 0;
+  top: 0;
+  width: 110px;
+}
