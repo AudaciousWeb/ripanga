@@ -34,7 +34,7 @@ const RipangaHeadCell = ({
     history.pushState(
       history.state,
       '',
-      `${url[0]}?${qs.stringify(params)}`
+      `${url[0]}?${qs.stringify(params, { arrayFormat: "brackets" })}`
     );
 
     onSort();
