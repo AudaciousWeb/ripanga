@@ -56,7 +56,7 @@ const RipangaGroupRow = ({
     : null);
 
   return (
-    <tr className={styles['ripanga-group-row']}>
+    <tr className={styles['groupRow']}>
       <td colSpan={colSpan}>
         <div className={styles.controls}>
           {checkbox}

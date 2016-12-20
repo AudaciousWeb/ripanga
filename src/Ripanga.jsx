@@ -344,29 +344,29 @@ export default class Ripanga extends React.Component {
     const stickyCells = RipangaStickyCells({...this.props});
 
     return (
-      <div className={S['ripanga-container']} ref="ripangaContainer">
-        <div className={S['ripanga-head-container']} ref="headContainer">
-          <table className={S['ripanga-head']} ref="headTable">
+      <div className={S.container} ref="ripangaContainer">
+        <div className={S.headContainer} ref="headContainer">
+          <table className={S.head} ref="headTable">
             <RipangaHeadRow {...this.props} />
           </table>
         </div>
 
-        <div className={S['ripanga-body-container']} ref="bodyContainer">
-          <table className={S['ripanga-body']} ref="bodyTable">
+        <div className={S.bodyContainer} ref="bodyContainer">
+          <table className={S.body} ref="bodyTable">
             <RipangaBodyRows {...this.props} />
           </table>
         </div>
 
-        <div className={S['ripanga-sticky-container']} ref="stickyContainer">
+        <div className={S.stickyContainer} ref="stickyContainer">
           {stickyCells}
         </div>
 
-        <div className={S['ripanga-sticky-cell-head']} ref="stickyHead">
+        <div className={S.stickyCellHead} ref="stickyHead">
           <Range ref="slider"
             type="range"
             min="0"
             max="50"
-            className={S['horizontal-scroller']}
+            className={S.horizontalScroller}
             value={sliderValue}
             onClick={this.props.actions.trackSlider}
             onChange={this._scrollSlider}

@@ -50,7 +50,7 @@ const RipangaHeadRow = ({
   const cells = columnDefinitions.map(renderCell);
 
   if (showCheckboxes) {
-    cells.unshift(<th className="ripanga-head-controls" key={`ripanga-head-controls`}>
+    cells.unshift(<th className="headControls" key={`headControls`}>
       <input
         type="checkbox"
         checked={indices.length === checkedCount}

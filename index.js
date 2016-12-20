@@ -101,7 +101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Ripanga2 = _interopRequireDefault(_Ripanga);
 
-	var _RipangaReducer = __webpack_require__(164);
+	var _RipangaReducer = __webpack_require__(165);
 
 	var _RipangaReducer2 = _interopRequireDefault(_RipangaReducer);
 
@@ -2142,15 +2142,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _RipangaHeadRow2 = _interopRequireDefault(_RipangaHeadRow);
 
-	var _RipangaBodyRows = __webpack_require__(156);
+	var _RipangaBodyRows = __webpack_require__(157);
 
 	var _RipangaBodyRows2 = _interopRequireDefault(_RipangaBodyRows);
 
-	var _RipangaStickyCells = __webpack_require__(161);
+	var _RipangaStickyCells = __webpack_require__(162);
 
 	var _RipangaStickyCells2 = _interopRequireDefault(_RipangaStickyCells);
 
-	var _RipangaInterface = __webpack_require__(162);
+	var _RipangaInterface = __webpack_require__(163);
 
 	var _RipangaInterface2 = _interopRequireDefault(_RipangaInterface);
 
@@ -2483,38 +2483,38 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: _Ripanga2.default['ripanga-container'], ref: 'ripangaContainer' },
+	        { className: _Ripanga2.default.container, ref: 'ripangaContainer' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: _Ripanga2.default['ripanga-head-container'], ref: 'headContainer' },
+	          { className: _Ripanga2.default.headContainer, ref: 'headContainer' },
 	          _react2.default.createElement(
 	            'table',
-	            { className: _Ripanga2.default['ripanga-head'], ref: 'headTable' },
+	            { className: _Ripanga2.default.head, ref: 'headTable' },
 	            _react2.default.createElement(_RipangaHeadRow2.default, this.props)
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: _Ripanga2.default['ripanga-body-container'], ref: 'bodyContainer' },
+	          { className: _Ripanga2.default.bodyContainer, ref: 'bodyContainer' },
 	          _react2.default.createElement(
 	            'table',
-	            { className: _Ripanga2.default['ripanga-body'], ref: 'bodyTable' },
+	            { className: _Ripanga2.default.body, ref: 'bodyTable' },
 	            _react2.default.createElement(_RipangaBodyRows2.default, this.props)
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: _Ripanga2.default['ripanga-sticky-container'], ref: 'stickyContainer' },
+	          { className: _Ripanga2.default.stickyContainer, ref: 'stickyContainer' },
 	          stickyCells
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: _Ripanga2.default['ripanga-sticky-cell-head'], ref: 'stickyHead' },
+	          { className: _Ripanga2.default.stickyCellHead, ref: 'stickyHead' },
 	          _react2.default.createElement(_reactRange2.default, { ref: 'slider',
 	            type: 'range',
 	            min: '0',
 	            max: '50',
-	            className: _Ripanga2.default['horizontal-scroller'],
+	            className: _Ripanga2.default.horizontalScroller,
 	            value: sliderValue,
 	            onClick: this.props.actions.trackSlider,
 	            onChange: this._scrollSlider
@@ -4459,7 +4459,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _RipangaHeadCell2 = _interopRequireDefault(_RipangaHeadCell);
 
-	var _RipangaCaret = __webpack_require__(153);
+	var _RipangaCaret = __webpack_require__(154);
 
 	var _RipangaCaret2 = _interopRequireDefault(_RipangaCaret);
 
@@ -4516,7 +4516,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (showCheckboxes) {
 	    cells.unshift(_react2.default.createElement(
 	      'th',
-	      { className: 'ripanga-head-controls', key: 'ripanga-head-controls' },
+	      { className: 'headControls', key: 'headControls' },
 	      _react2.default.createElement('input', {
 	        type: 'checkbox',
 	        checked: indices.length === checkedCount,
@@ -4599,7 +4599,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    sessionStorage.setItem(globalKey + '/SORT', (0, _stringify2.default)(params.sort));
 
-	    history.pushState(history.state, '', url[0] + '?' + _qs2.default.stringify(params));
+	    history.pushState(history.state, '', url[0] + '?' + _qs2.default.stringify(params, { arrayFormat: "brackets" }));
 
 	    onSort();
 	  };
@@ -4612,7 +4612,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return _react2.default.createElement(
 	    'th',
 	    { onClick: _onSort,
-	      className: (0, _classnames2.default)(_Ripanga2.default['sort-arrow'], (0, _defineProperty3.default)({}, _Ripanga2.default.sortable, def.sortable)) },
+	      className: (0, _classnames2.default)(_Ripanga2.default['sortArrow'], (0, _defineProperty3.default)({}, _Ripanga2.default.sortable, def.sortable)) },
 	    _react2.default.createElement(
 	      'span',
 	      { className: _Ripanga2.default.label },
@@ -4688,33 +4688,33 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "[type=range] {\n  background: 0;\n  -webkit-appearance: none;\n  margin: 9px 0;\n  width: 100%; }\n  [type=range]::-ms-tooltip {\n    display: none; }\n  [type=range]:focus {\n    outline: none; }\n  [type=range]::-webkit-slider-runnable-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 5px; }\n  [type=range]::-webkit-slider-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px;\n    -webkit-appearance: none;\n    margin-top: -7px; }\n  [type=range]:focus::-webkit-slider-runnable-track {\n    background: #b8b9bb; }\n  [type=range]::-moz-range-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 5px; }\n  [type=range]::-moz-range-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px; }\n  [type=range]::-moz-focus-outer {\n    border: 0; }\n  [type=range]::-ms-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    background: transparent;\n    border-color: transparent;\n    color: transparent; }\n  [type=range]::-ms-fill-lower {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #9e9fa1;\n    border: 1px solid #d8d8d8;\n    border-radius: 10px; }\n  [type=range]::-ms-fill-upper {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 10px; }\n  [type=range]::-ms-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px;\n    margin: 0; }\n  [type=range]:focus::-ms-fill-lower {\n    background: #abacae; }\n  [type=range]:focus::-ms-fill-upper {\n    background: #b8b9bb; }\n\n.Ripanga__ripanga-container___37P5L {\n  overflow: hidden;\n  position: relative; }\n\n.Ripanga__ripanga-head-container___3DKd7 {\n  border: solid #c3c2c2;\n  border-width: 1px 0 1px 1px;\n  cursor: default;\n  left: 0;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  z-index: 2; }\n\n.Ripanga__ripanga-body-container___vtuLA {\n  border: solid #c3c2c2;\n  border-width: 0 0 0 1px;\n  overflow: auto;\n  z-index: 1; }\n\n.Ripanga__ripanga-head___w0uIf {\n  background: #e7e7e7;\n  font-size: 11px;\n  table-layout: fixed; }\n  .Ripanga__ripanga-head___w0uIf th {\n    border-right: 1px solid #c3c2c2;\n    font-weight: bold;\n    line-height: 20px;\n    overflow: hidden;\n    padding: 10px;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n  .Ripanga__ripanga-head___w0uIf .Ripanga__column-sort___bEtMn {\n    white-space: normal; }\n  .Ripanga__ripanga-head___w0uIf .Ripanga__sortable___34Ii6 {\n    cursor: pointer; }\n  .Ripanga__ripanga-head___w0uIf .Ripanga__label___qQjAr {\n    display: inline-block;\n    margin-right: 5px; }\n\n.Ripanga__ripanga-body___2VIeW {\n  position: relative; }\n  .Ripanga__ripanga-body___2VIeW td {\n    border-right: 1px solid #c3c2c2;\n    border-bottom: 1px solid #c3c2c2;\n    font-size: 11px;\n    padding: 10px;\n    position: relative; }\n\n.Ripanga__ripanga-group-row___3AFWy {\n  background: #f2f2f2; }\n  .Ripanga__ripanga-group-row___3AFWy .Ripanga__controls___oypzM {\n    display: inline-block;\n    padding: 0 10px; }\n  .Ripanga__ripanga-group-row___3AFWy .Ripanga__title___2iOMx {\n    display: inline-block; }\n  .Ripanga__ripanga-group-row___3AFWy td {\n    padding: 0;\n    vertical-align: middle; }\n\n.Ripanga__ripanga-caret___36DCg {\n  color: #676767;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 11px;\n  height: 20px;\n  line-height: 20px;\n  text-align: center;\n  transition: transform 0.2s ease;\n  width: 20px; }\n  .Ripanga__ripanga-caret___36DCg.Ripanga__closed___3xJMU, .Ripanga__ripanga-caret___36DCg.Ripanga__disabled___2aL6A {\n    transform: rotate(-180deg); }\n  .Ripanga__ripanga-caret___36DCg.Ripanga__disabled___2aL6A {\n    color: #c3c2c2;\n    pointer: not-allowed; }\n\n.Ripanga__ripanga-group-pane___23S_8 .Ripanga__inside___1saYJ {\n  height: 300px;\n  max-height: 300px;\n  transition: all 0.5s ease; }\n\n.Ripanga__ripanga-group-pane___23S_8 .Ripanga__hidden___cm8_R {\n  max-height: 0px;\n  overflow: hidden; }\n\n.Ripanga__ripanga-sticky-cell___1t5dB {\n  backround: red;\n  border: solid #c3c2c2;\n  border-width: 0 1px 1px 1px;\n  text-align: center; }\n\n.Ripanga__ripanga-sticky-cell-group___1IwgQ {\n  background: #f2f2f2;\n  padding: 0;\n  text-align: right; }\n\n.Ripanga__ripanga-sticky-cell-head___3vXI4 {\n  background: #e7e7e7;\n  border-top: 1px solid #c3c2c2;\n  padding: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  text-align: center;\n  z-index: 3; }\n  .Ripanga__ripanga-sticky-cell-head___3vXI4 .Ripanga__horizontal-scroller___2J3ic {\n    height: 14px;\n    left: 50%;\n    margin-left: -40px;\n    margin-top: -7px;\n    padding: 0;\n    position: absolute;\n    top: 50%;\n    width: 80px; }\n\n.Ripanga__ripanga-sticky-cell-pane___225JJ {\n  border: solid #c3c2c2;\n  border-width: 0 0 0 1px; }\n\n.Ripanga__ripanga-sticky-container___1rs2l {\n  background: #fff;\n  border-top: 1px solid #c3c2c2;\n  position: absolute;\n  overflow: hidden;\n  right: 0;\n  top: 0;\n  width: 110px; }\n", ""]);
+	exports.push([module.id, "[type=range] {\n  background: 0;\n  -webkit-appearance: none;\n  margin: 9px 0;\n  width: 100%; }\n  [type=range]::-ms-tooltip {\n    display: none; }\n  [type=range]:focus {\n    outline: none; }\n  [type=range]::-webkit-slider-runnable-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 5px; }\n  [type=range]::-webkit-slider-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px;\n    -webkit-appearance: none;\n    margin-top: -7px; }\n  [type=range]:focus::-webkit-slider-runnable-track {\n    background: #b8b9bb; }\n  [type=range]::-moz-range-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 5px; }\n  [type=range]::-moz-range-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px; }\n  [type=range]::-moz-focus-outer {\n    border: 0; }\n  [type=range]::-ms-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    background: transparent;\n    border-color: transparent;\n    color: transparent; }\n  [type=range]::-ms-fill-lower {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #9e9fa1;\n    border: 1px solid #d8d8d8;\n    border-radius: 10px; }\n  [type=range]::-ms-fill-upper {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 10px; }\n  [type=range]::-ms-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px;\n    margin: 0; }\n  [type=range]:focus::-ms-fill-lower {\n    background: #abacae; }\n  [type=range]:focus::-ms-fill-upper {\n    background: #b8b9bb; }\n\n.Ripanga__container___Ofnqz {\n  overflow: hidden;\n  position: relative; }\n\n.Ripanga__headContainer___2bKh7 {\n  border: solid #c3c2c2;\n  border-width: 1px 0 1px 1px;\n  cursor: default;\n  left: 0;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  z-index: 2; }\n\n.Ripanga__bodyContainer___3iIHo {\n  border: solid #c3c2c2;\n  border-width: 0 0 0 1px;\n  overflow: auto;\n  z-index: 1; }\n\n.Ripanga__head___13GZv {\n  background: #e7e7e7;\n  font-size: 11px;\n  table-layout: fixed; }\n  .Ripanga__head___13GZv th {\n    border-right: 1px solid #c3c2c2;\n    font-weight: bold;\n    line-height: 20px;\n    overflow: hidden;\n    padding: 10px;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n  .Ripanga__head___13GZv .Ripanga__columnSort___3rlFx {\n    white-space: normal; }\n  .Ripanga__head___13GZv .Ripanga__sortable___34Ii6 {\n    cursor: pointer; }\n  .Ripanga__head___13GZv .Ripanga__label___qQjAr {\n    display: inline-block;\n    margin-right: 5px; }\n\n.Ripanga__body___3ZTlv {\n  position: relative; }\n  .Ripanga__body___3ZTlv td {\n    border-right: 1px solid #c3c2c2;\n    border-bottom: 1px solid #c3c2c2;\n    font-size: 11px;\n    padding: 10px;\n    position: relative; }\n\n.Ripanga__groupRow___3rO1h {\n  background: #f2f2f2; }\n  .Ripanga__groupRow___3rO1h .Ripanga__controls___oypzM {\n    display: inline-block;\n    padding: 0 10px; }\n  .Ripanga__groupRow___3rO1h .Ripanga__title___2iOMx {\n    display: inline-block; }\n  .Ripanga__groupRow___3rO1h td {\n    padding: 0;\n    vertical-align: middle; }\n\n.Ripanga__caret___2UmVp {\n  color: #676767;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 11px;\n  height: 20px;\n  line-height: 20px;\n  text-align: center;\n  transition: transform 0.2s ease;\n  width: 20px; }\n  .Ripanga__caret___2UmVp.Ripanga__closed___3xJMU, .Ripanga__caret___2UmVp.Ripanga__disabled___2aL6A {\n    transform: rotate(-180deg); }\n  .Ripanga__caret___2UmVp.Ripanga__disabled___2aL6A {\n    color: #c3c2c2;\n    pointer: not-allowed; }\n\n.Ripanga__groupPane___1xUfU .Ripanga__inside___1saYJ {\n  height: 300px;\n  max-height: 300px;\n  transition: all 0.5s ease; }\n\n.Ripanga__groupPane___1xUfU .Ripanga__hidden___cm8_R {\n  max-height: 0px;\n  overflow: hidden; }\n\n.Ripanga__stickyCell___1_K6i {\n  backround: red;\n  border: solid #c3c2c2;\n  border-width: 0 1px 1px 1px;\n  text-align: center; }\n\n.Ripanga__stickyCellGroup___N27NA {\n  background: #f2f2f2;\n  padding: 0;\n  text-align: right; }\n\n.Ripanga__stickyCellHead___1ekVw {\n  background: #e7e7e7;\n  border-top: 1px solid #c3c2c2;\n  padding: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  text-align: center;\n  z-index: 3; }\n  .Ripanga__stickyCellHead___1ekVw .Ripanga__horizontalScroller___IFpDt {\n    height: 14px;\n    left: 50%;\n    margin-left: -40px;\n    margin-top: -7px;\n    padding: 0;\n    position: absolute;\n    top: 50%;\n    width: 80px; }\n\n.Ripanga__stickyCellPane___3tQwa {\n  border: solid #c3c2c2;\n  border-width: 0 0 0 1px; }\n\n.Ripanga__stickyContainer___yCqKx {\n  background: #fff;\n  border-top: 1px solid #c3c2c2;\n  position: absolute;\n  overflow: hidden;\n  right: 0;\n  top: 0;\n  width: 110px; }\n", ""]);
 
 	// exports
 	exports.locals = {
-		"ripanga-container": "Ripanga__ripanga-container___37P5L",
-		"ripanga-head-container": "Ripanga__ripanga-head-container___3DKd7",
-		"ripanga-body-container": "Ripanga__ripanga-body-container___vtuLA",
-		"ripanga-head": "Ripanga__ripanga-head___w0uIf",
-		"column-sort": "Ripanga__column-sort___bEtMn",
+		"container": "Ripanga__container___Ofnqz",
+		"headContainer": "Ripanga__headContainer___2bKh7",
+		"bodyContainer": "Ripanga__bodyContainer___3iIHo",
+		"head": "Ripanga__head___13GZv",
+		"columnSort": "Ripanga__columnSort___3rlFx",
 		"sortable": "Ripanga__sortable___34Ii6",
 		"label": "Ripanga__label___qQjAr",
-		"ripanga-body": "Ripanga__ripanga-body___2VIeW",
-		"ripanga-group-row": "Ripanga__ripanga-group-row___3AFWy",
+		"body": "Ripanga__body___3ZTlv",
+		"groupRow": "Ripanga__groupRow___3rO1h",
 		"controls": "Ripanga__controls___oypzM",
 		"title": "Ripanga__title___2iOMx",
-		"ripanga-caret": "Ripanga__ripanga-caret___36DCg",
+		"caret": "Ripanga__caret___2UmVp",
 		"closed": "Ripanga__closed___3xJMU",
 		"disabled": "Ripanga__disabled___2aL6A",
-		"ripanga-group-pane": "Ripanga__ripanga-group-pane___23S_8",
+		"groupPane": "Ripanga__groupPane___1xUfU",
 		"inside": "Ripanga__inside___1saYJ",
 		"hidden": "Ripanga__hidden___cm8_R",
-		"ripanga-sticky-cell": "Ripanga__ripanga-sticky-cell___1t5dB",
-		"ripanga-sticky-cell-group": "Ripanga__ripanga-sticky-cell-group___1IwgQ Ripanga__ripanga-sticky-cell___1t5dB",
-		"ripanga-sticky-cell-head": "Ripanga__ripanga-sticky-cell-head___3vXI4 Ripanga__ripanga-sticky-cell___1t5dB",
-		"horizontal-scroller": "Ripanga__horizontal-scroller___2J3ic",
-		"ripanga-sticky-cell-pane": "Ripanga__ripanga-sticky-cell-pane___225JJ",
-		"ripanga-sticky-container": "Ripanga__ripanga-sticky-container___1rs2l"
+		"stickyCell": "Ripanga__stickyCell___1_K6i",
+		"stickyCellGroup": "Ripanga__stickyCellGroup___N27NA Ripanga__stickyCell___1_K6i",
+		"stickyCellHead": "Ripanga__stickyCellHead___1ekVw Ripanga__stickyCell___1_K6i",
+		"horizontalScroller": "Ripanga__horizontalScroller___IFpDt",
+		"stickyCellPane": "Ripanga__stickyCellPane___3tQwa",
+		"stickyContainer": "Ripanga__stickyContainer___yCqKx"
 	};
 
 /***/ },
@@ -5058,12 +5058,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var Stringify = __webpack_require__(150);
-	var Parse = __webpack_require__(152);
+	var stringify = __webpack_require__(150);
+	var parse = __webpack_require__(153);
+	var formats = __webpack_require__(152);
 
 	module.exports = {
-	    stringify: Stringify,
-	    parse: Parse
+	    formats: formats,
+	    parse: parse,
+	    stringify: stringify
 	};
 
 
@@ -5073,7 +5075,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var Utils = __webpack_require__(151);
+	var utils = __webpack_require__(151);
+	var formats = __webpack_require__(152);
 
 	var arrayPrefixGenerators = {
 	    brackets: function brackets(prefix) {
@@ -5087,20 +5090,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 
+	var toISO = Date.prototype.toISOString;
+
 	var defaults = {
 	    delimiter: '&',
-	    strictNullHandling: false,
-	    skipNulls: false,
 	    encode: true,
-	    encoder: Utils.encode
+	    encoder: utils.encode,
+	    serializeDate: function serializeDate(date) {
+	        return toISO.call(date);
+	    },
+	    skipNulls: false,
+	    strictNullHandling: false
 	};
 
-	var stringify = function stringify(object, prefix, generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots) {
+	var stringify = function stringify(object, prefix, generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots, serializeDate, formatter) {
 	    var obj = object;
 	    if (typeof filter === 'function') {
 	        obj = filter(prefix, obj);
 	    } else if (obj instanceof Date) {
-	        obj = obj.toISOString();
+	        obj = serializeDate(obj);
 	    } else if (obj === null) {
 	        if (strictNullHandling) {
 	            return encoder ? encoder(prefix) : prefix;
@@ -5109,11 +5117,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        obj = '';
 	    }
 
-	    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || Utils.isBuffer(obj)) {
+	    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || utils.isBuffer(obj)) {
 	        if (encoder) {
-	            return [encoder(prefix) + '=' + encoder(obj)];
+	            return [formatter(encoder(prefix)) + '=' + formatter(encoder(obj))];
 	        }
-	        return [prefix + '=' + String(obj)];
+	        return [formatter(prefix) + '=' + formatter(String(obj))];
 	    }
 
 	    var values = [];
@@ -5138,9 +5146,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        if (Array.isArray(obj)) {
-	            values = values.concat(stringify(obj[key], generateArrayPrefix(prefix, key), generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots));
+	            values = values.concat(stringify(
+	                obj[key],
+	                generateArrayPrefix(prefix, key),
+	                generateArrayPrefix,
+	                strictNullHandling,
+	                skipNulls,
+	                encoder,
+	                filter,
+	                sort,
+	                allowDots,
+	                serializeDate,
+	                formatter
+	            ));
 	        } else {
-	            values = values.concat(stringify(obj[key], prefix + (allowDots ? '.' + key : '[' + key + ']'), generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots));
+	            values = values.concat(stringify(
+	                obj[key],
+	                prefix + (allowDots ? '.' + key : '[' + key + ']'),
+	                generateArrayPrefix,
+	                strictNullHandling,
+	                skipNulls,
+	                encoder,
+	                filter,
+	                sort,
+	                allowDots,
+	                serializeDate,
+	                formatter
+	            ));
 	        }
 	    }
 
@@ -5157,6 +5189,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var encoder = encode ? (typeof options.encoder === 'function' ? options.encoder : defaults.encoder) : null;
 	    var sort = typeof options.sort === 'function' ? options.sort : null;
 	    var allowDots = typeof options.allowDots === 'undefined' ? false : options.allowDots;
+	    var serializeDate = typeof options.serializeDate === 'function' ? options.serializeDate : defaults.serializeDate;
+	    if (typeof options.format === 'undefined') {
+	        options.format = formats.default;
+	    } else if (!Object.prototype.hasOwnProperty.call(formats.formatters, options.format)) {
+	        throw new TypeError('Unknown format option provided.');
+	    }
+	    var formatter = formats.formatters[options.format];
 	    var objKeys;
 	    var filter;
 
@@ -5168,7 +5207,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        filter = options.filter;
 	        obj = filter('', obj);
 	    } else if (Array.isArray(options.filter)) {
-	        objKeys = filter = options.filter;
+	        filter = options.filter;
+	        objKeys = filter;
 	    }
 
 	    var keys = [];
@@ -5203,7 +5243,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	            continue;
 	        }
 
-	        keys = keys.concat(stringify(obj[key], key, generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots));
+	        keys = keys.concat(stringify(
+	            obj[key],
+	            key,
+	            generateArrayPrefix,
+	            strictNullHandling,
+	            skipNulls,
+	            encoder,
+	            filter,
+	            sort,
+	            allowDots,
+	            serializeDate,
+	            formatter
+	        ));
 	    }
 
 	    return keys.join(delimiter);
@@ -5216,17 +5268,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
+	var has = Object.prototype.hasOwnProperty;
+
 	var hexTable = (function () {
-	    var array = new Array(256);
+	    var array = [];
 	    for (var i = 0; i < 256; ++i) {
-	        array[i] = '%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase();
+	        array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
 	    }
 
 	    return array;
 	}());
 
 	exports.arrayToObject = function (source, options) {
-	    var obj = options.plainObjects ? Object.create(null) : {};
+	    var obj = options && options.plainObjects ? Object.create(null) : {};
 	    for (var i = 0; i < source.length; ++i) {
 	        if (typeof source[i] !== 'undefined') {
 	            obj[i] = source[i];
@@ -5260,6 +5314,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var mergeTarget = target;
 	    if (Array.isArray(target) && !Array.isArray(source)) {
 	        mergeTarget = exports.arrayToObject(target, options);
+	    }
+
+	    if (Array.isArray(target) && Array.isArray(source)) {
+	        source.forEach(function (item, i) {
+	            if (has.call(target, i)) {
+	                if (target[i] && typeof target[i] === 'object') {
+	                    target[i] = exports.merge(target[i], item, options);
+	                } else {
+	                    target.push(item);
+	                }
+	            } else {
+	                target[i] = item;
+	            }
+	        });
+	        return target;
 	    }
 
 	    return Object.keys(source).reduce(function (acc, key) {
@@ -5359,10 +5428,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    var keys = Object.keys(obj);
-	    for (var j = 0; j < keys.length; ++j) {
-	        var key = keys[j];
+	    keys.forEach(function (key) {
 	        obj[key] = exports.compact(obj[key], refs);
-	    }
+	    });
 
 	    return obj;
 	};
@@ -5382,22 +5450,48 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 152 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var replace = String.prototype.replace;
+	var percentTwenties = /%20/g;
+
+	module.exports = {
+	    'default': 'RFC3986',
+	    formatters: {
+	        RFC1738: function (value) {
+	            return replace.call(value, percentTwenties, '+');
+	        },
+	        RFC3986: function (value) {
+	            return value;
+	        }
+	    },
+	    RFC1738: 'RFC1738',
+	    RFC3986: 'RFC3986'
+	};
+
+
+/***/ },
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Utils = __webpack_require__(151);
+	var utils = __webpack_require__(151);
+
+	var has = Object.prototype.hasOwnProperty;
 
 	var defaults = {
+	    allowDots: false,
+	    allowPrototypes: false,
+	    arrayLimit: 20,
+	    decoder: utils.decode,
 	    delimiter: '&',
 	    depth: 5,
-	    arrayLimit: 20,
 	    parameterLimit: 1000,
-	    strictNullHandling: false,
 	    plainObjects: false,
-	    allowPrototypes: false,
-	    allowDots: false,
-	    decoder: Utils.decode
+	    strictNullHandling: false
 	};
 
 	var parseValues = function parseValues(str, options) {
@@ -5408,21 +5502,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var part = parts[i];
 	        var pos = part.indexOf(']=') === -1 ? part.indexOf('=') : part.indexOf(']=') + 1;
 
+	        var key, val;
 	        if (pos === -1) {
-	            obj[options.decoder(part)] = '';
-
-	            if (options.strictNullHandling) {
-	                obj[options.decoder(part)] = null;
-	            }
+	            key = options.decoder(part);
+	            val = options.strictNullHandling ? null : '';
 	        } else {
-	            var key = options.decoder(part.slice(0, pos));
-	            var val = options.decoder(part.slice(pos + 1));
-
-	            if (Object.prototype.hasOwnProperty.call(obj, key)) {
-	                obj[key] = [].concat(obj[key]).concat(val);
-	            } else {
-	                obj[key] = val;
-	            }
+	            key = options.decoder(part.slice(0, pos));
+	            val = options.decoder(part.slice(pos + 1));
+	        }
+	        if (has.call(obj, key)) {
+	            obj[key] = [].concat(obj[key]).concat(val);
+	        } else {
+	            obj[key] = val;
 	        }
 	    }
 
@@ -5484,7 +5575,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (segment[1]) {
 	        // If we aren't using plain objects, optionally prefix keys
 	        // that would overwrite object prototype properties
-	        if (!options.plainObjects && Object.prototype.hasOwnProperty(segment[1])) {
+	        if (!options.plainObjects && has.call(Object.prototype, segment[1])) {
 	            if (!options.allowPrototypes) {
 	                return;
 	            }
@@ -5498,7 +5589,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var i = 0;
 	    while ((segment = child.exec(key)) !== null && i < options.depth) {
 	        i += 1;
-	        if (!options.plainObjects && Object.prototype.hasOwnProperty(segment[1].replace(/\[|\]/g, ''))) {
+	        if (!options.plainObjects && has.call(Object.prototype, segment[1].replace(/\[|\]/g, ''))) {
 	            if (!options.allowPrototypes) {
 	                continue;
 	            }
@@ -5522,7 +5613,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        throw new TypeError('Decoder has to be a function.');
 	    }
 
-	    options.delimiter = typeof options.delimiter === 'string' || Utils.isRegExp(options.delimiter) ? options.delimiter : defaults.delimiter;
+	    options.delimiter = typeof options.delimiter === 'string' || utils.isRegExp(options.delimiter) ? options.delimiter : defaults.delimiter;
 	    options.depth = typeof options.depth === 'number' ? options.depth : defaults.depth;
 	    options.arrayLimit = typeof options.arrayLimit === 'number' ? options.arrayLimit : defaults.arrayLimit;
 	    options.parseArrays = options.parseArrays !== false;
@@ -5546,15 +5637,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    for (var i = 0; i < keys.length; ++i) {
 	        var key = keys[i];
 	        var newObj = parseKeys(key, tempObj[key], options);
-	        obj = Utils.merge(obj, newObj, options);
+	        obj = utils.merge(obj, newObj, options);
 	    }
 
-	    return Utils.compact(obj);
+	    return utils.compact(obj);
 	};
 
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5571,7 +5662,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RipangaCaret = __webpack_require__(154);
+	var _RipangaCaret = __webpack_require__(155);
 
 	var _RipangaCaret2 = _interopRequireDefault(_RipangaCaret);
 
@@ -5600,13 +5691,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaCaret;
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(155);
+	var content = __webpack_require__(156);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(147)(content, {});
@@ -5626,7 +5717,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 155 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(146)();
@@ -5644,7 +5735,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 156 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5669,15 +5760,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Ripanga2 = _interopRequireDefault(_Ripanga);
 
-	var _RipangaGroupPane = __webpack_require__(157);
+	var _RipangaGroupPane = __webpack_require__(158);
 
 	var _RipangaGroupPane2 = _interopRequireDefault(_RipangaGroupPane);
 
-	var _RipangaGroupRow = __webpack_require__(158);
+	var _RipangaGroupRow = __webpack_require__(159);
 
 	var _RipangaGroupRow2 = _interopRequireDefault(_RipangaGroupRow);
 
-	var _RipangaBodyRow = __webpack_require__(159);
+	var _RipangaBodyRow = __webpack_require__(160);
 
 	var _RipangaBodyRow2 = _interopRequireDefault(_RipangaBodyRow);
 
@@ -5790,7 +5881,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaBodyRows;
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5878,7 +5969,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        null,
 	        _react2.default.createElement(
 	          'td',
-	          { colSpan: colSpan, className: _Ripanga2.default['ripanga-group-pane'] },
+	          { colSpan: colSpan, className: _Ripanga2.default['groupPane'] },
 	          pane
 	        )
 	      );
@@ -5894,7 +5985,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaGroupPane;
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5907,7 +5998,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RipangaCaret = __webpack_require__(153);
+	var _RipangaCaret = __webpack_require__(154);
 
 	var _RipangaCaret2 = _interopRequireDefault(_RipangaCaret);
 
@@ -5969,7 +6060,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  return _react2.default.createElement(
 	    'tr',
-	    { className: _Ripanga2.default['ripanga-group-row'] },
+	    { className: _Ripanga2.default['groupRow'] },
 	    _react2.default.createElement(
 	      'td',
 	      { colSpan: colSpan },
@@ -5991,7 +6082,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaGroupRow;
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6027,7 +6118,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(160);
+	var _lodash = __webpack_require__(161);
 
 	var _Ripanga = __webpack_require__(144);
 
@@ -6175,7 +6266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaBodyRow;
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -23247,7 +23338,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(26)(module)))
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23285,7 +23376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var _renderGroupStickyCell = function _renderGroupStickyCell(groupData, groupIndex) {
 	    return _react2.default.createElement(
 	      'div',
-	      { className: _Ripanga2.default['ripanga-sticky-cell-group'],
+	      { className: _Ripanga2.default.stickyCellGroup,
 	        key: 'sticky-cell-group-' + groupIndex },
 	      renderGroupStickyCell ? renderGroupStickyCell(defaultGroupStickyCellRenderer, groupData, groupIndex) : defaultGroupStickyCellRenderer()
 	    );
@@ -23301,7 +23392,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return data.map(function (obj, index) {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: _Ripanga2.default['ripanga-sticky-cell'],
+	        { className: _Ripanga2.default.stickyCell,
 	          key: 'sticky-cell-' + index },
 	        renderBodyStickyCell ? renderBodyStickyCell(defaultBodyStickyCellRenderer, obj) : defaultBodyStickyCellRenderer(obj)
 	      );
@@ -23312,7 +23403,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var groupIndex = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
 	    if (collapsedGroups.get(groupIndex) !== true && toggledGroups.get(groupIndex) === true) {
-	      return _react2.default.createElement('div', { className: _Ripanga2.default['ripanga-sticky-cell-pane'] });
+	      return _react2.default.createElement('div', { className: _Ripanga2.default.stickyCellPane });
 	    }
 	  };
 
@@ -23338,7 +23429,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaStickyCells;
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23353,11 +23444,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRedux = __webpack_require__(4);
 
-	var _RipangaDispatch = __webpack_require__(163);
+	var _RipangaDispatch = __webpack_require__(164);
 
 	var _RipangaDispatch2 = _interopRequireDefault(_RipangaDispatch);
 
-	var _RipangaSelector = __webpack_require__(178);
+	var _RipangaSelector = __webpack_require__(179);
 
 	var _RipangaSelector2 = _interopRequireDefault(_RipangaSelector);
 
@@ -23374,7 +23465,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaInterface;
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23385,7 +23476,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _redux = __webpack_require__(12);
 
-	var _RipangaReducer = __webpack_require__(164);
+	var _RipangaReducer = __webpack_require__(165);
 
 	exports.default = function (dispatch) {
 	  return {
@@ -23404,7 +23495,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23424,9 +23515,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _handleActions;
 
-	var _reduxActions = __webpack_require__(165);
+	var _reduxActions = __webpack_require__(166);
 
-	var _immutable = __webpack_require__(177);
+	var _immutable = __webpack_require__(178);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23497,7 +23588,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = reducer;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23506,15 +23597,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _createAction = __webpack_require__(166);
+	var _createAction = __webpack_require__(167);
 
 	var _createAction2 = _interopRequireDefault(_createAction);
 
-	var _handleAction = __webpack_require__(167);
+	var _handleAction = __webpack_require__(168);
 
 	var _handleAction2 = _interopRequireDefault(_handleAction);
 
-	var _handleActions = __webpack_require__(174);
+	var _handleActions = __webpack_require__(175);
 
 	var _handleActions2 = _interopRequireDefault(_handleActions);
 
@@ -23523,7 +23614,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.handleActions = _handleActions2['default'];
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23552,7 +23643,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23560,7 +23651,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports['default'] = handleAction;
 
-	var _fluxStandardAction = __webpack_require__(168);
+	var _fluxStandardAction = __webpack_require__(169);
 
 	function isFunction(val) {
 	  return typeof val === 'function';
@@ -23588,7 +23679,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23599,7 +23690,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(169);
+	var _lodashIsplainobject = __webpack_require__(170);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -23618,7 +23709,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23629,9 +23720,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(170),
-	    isArguments = __webpack_require__(171),
-	    keysIn = __webpack_require__(172);
+	var baseFor = __webpack_require__(171),
+	    isArguments = __webpack_require__(172),
+	    keysIn = __webpack_require__(173);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -23727,7 +23818,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports) {
 
 	/**
@@ -23781,7 +23872,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports) {
 
 	/**
@@ -24016,7 +24107,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24027,8 +24118,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(171),
-	    isArray = __webpack_require__(173);
+	var isArguments = __webpack_require__(172),
+	    isArray = __webpack_require__(174);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -24154,7 +24245,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports) {
 
 	/**
@@ -24340,7 +24431,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24350,15 +24441,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _handleAction = __webpack_require__(167);
+	var _handleAction = __webpack_require__(168);
 
 	var _handleAction2 = _interopRequireDefault(_handleAction);
 
-	var _ownKeys = __webpack_require__(175);
+	var _ownKeys = __webpack_require__(176);
 
 	var _ownKeys2 = _interopRequireDefault(_ownKeys);
 
-	var _reduceReducers = __webpack_require__(176);
+	var _reduceReducers = __webpack_require__(177);
 
 	var _reduceReducers2 = _interopRequireDefault(_reduceReducers);
 
@@ -24376,7 +24467,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24401,7 +24492,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24424,7 +24515,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29408,7 +29499,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}));
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29417,7 +29508,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _reselect = __webpack_require__(179);
+	var _reselect = __webpack_require__(180);
 
 	var ripangaSelector = function ripangaSelector(_ref) {
 	  var reducer = _ref.reducer;
@@ -29448,7 +29539,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 179 */
+/* 180 */
 /***/ function(module, exports) {
 
 	'use strict';

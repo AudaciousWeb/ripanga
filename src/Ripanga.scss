@@ -9,12 +9,12 @@ $bodyZ: 1;
 $headZ: 2;
 $stickyZ: 3;
 
-.ripanga-container {
+.container {
   overflow: hidden;
   position: relative;
 }
 
-.ripanga-head-container {
+.headContainer {
   border: solid palette(gray, base);
   border-width:1px 0 1px 1px;
   cursor: default;
@@ -25,14 +25,14 @@ $stickyZ: 3;
   z-index: $headZ;
 }
 
-.ripanga-body-container {
+.bodyContainer {
   border: solid palette(gray, base);
   border-width: 0 0 0 1px;
   overflow: auto;
   z-index: $bodyZ;
 }
 
-.ripanga-head {
+.head {
   background: palette(gray, light);
 
   font-size: 11px;
@@ -48,7 +48,7 @@ $stickyZ: 3;
     white-space: nowrap;
   }
 
-  .column-sort {
+  .columnSort {
     white-space: normal;
   }
 
@@ -62,7 +62,7 @@ $stickyZ: 3;
   }
 }
 
-.ripanga-body {
+.body {
   position: relative;
 
   td {
@@ -74,7 +74,7 @@ $stickyZ: 3;
   }
 }
 
-.ripanga-group-row {
+.groupRow {
   background: palette(gray, xlight);
 
   .controls {
@@ -92,7 +92,7 @@ $stickyZ: 3;
   }
 }
 
-.ripanga-caret {
+.caret {
   color: palette(gray, xdark);
   cursor: pointer;
   display: inline-block;
@@ -114,7 +114,7 @@ $stickyZ: 3;
   }
 }
 
-.ripanga-group-pane {
+.groupPane {
   .inside {
     height: 300px;
     max-height: 300px;
@@ -127,22 +127,22 @@ $stickyZ: 3;
   }
 }
 
-.ripanga-sticky-cell {
+.stickyCell {
   backround: red;
   border: solid palette(gray, base);
   border-width: 0 1px 1px 1px;
   text-align:center;
 }
 
-.ripanga-sticky-cell-group {
-  composes: ripanga-sticky-cell;
+.stickyCellGroup {
+  composes: stickyCell;
   background: palette(gray, xlight);
   padding: 0;
   text-align:right;
 }
 
-.ripanga-sticky-cell-head {
-  composes: ripanga-sticky-cell;
+.stickyCellHead {
+  composes: stickyCell;
   background: palette(gray, light);
   border-top: 1px solid palette(gray, base);
   padding: 0;
@@ -152,7 +152,7 @@ $stickyZ: 3;
   text-align: center;
   z-index:$stickyZ;
 
-  .horizontal-scroller {
+  .horizontalScroller {
     height: 14px;
     left: 50%;
     margin-left: -40px;
@@ -164,12 +164,12 @@ $stickyZ: 3;
   }
 }
 
-.ripanga-sticky-cell-pane {
+.stickyCellPane {
   border: solid palette(gray, base);
   border-width: 0 0 0 1px;
 }
 
-.ripanga-sticky-container {
+.stickyContainer {
   background: #fff;
   border-top: 1px solid palette(gray, base);
   position: absolute;

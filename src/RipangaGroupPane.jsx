@@ -32,7 +32,7 @@ export default class RipangaGroupPane extends React.Component {
 
     return (
       <tr>
-        <td colSpan={colSpan} className={styles['ripanga-group-pane']}>
+        <td colSpan={colSpan} className={styles['groupPane']}>
           {pane}
         </td>
       </tr>

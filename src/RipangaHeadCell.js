@@ -49,7 +49,7 @@ const RipangaHeadCell = ({
 
   return (
     <th onClick={_onSort}
-      className={cx(styles['sort-arrow'], {[styles.sortable]: def.sortable })}>
+      className={cx(styles['sortArrow'], {[styles.sortable]: def.sortable })}>
       <span className={styles.label}>{def.label}</span>
       {arrow}
     </th>

@@ -18,7 +18,7 @@ const RipangaStickyCells = ({
   };
 
   const _renderGroupStickyCell = (groupData, groupIndex) => {
-    return (<div className={styles['ripanga-sticky-cell-group']}
+    return (<div className={styles.stickyCellGroup}
       key={`sticky-cell-group-${groupIndex}`}>
       {renderGroupStickyCell
         ? renderGroupStickyCell(defaultGroupStickyCellRenderer, groupData, groupIndex)
@@ -32,7 +32,7 @@ const RipangaStickyCells = ({
       return [];
     }
 
-    return data.map((obj, index) => (<div className={styles['ripanga-sticky-cell']}
+    return data.map((obj, index) => (<div className={styles.stickyCell}
       key={`sticky-cell-${index}`}>
         {renderBodyStickyCell
           ? renderBodyStickyCell(defaultBodyStickyCellRenderer, obj)
@@ -44,7 +44,7 @@ const RipangaStickyCells = ({
   const defaultRenderGroupStickyPane = (groupIndex = 0) => {
     if (collapsedGroups.get(groupIndex) !== true &&
       toggledGroups.get(groupIndex) === true) {
-      return (<div className={styles['ripanga-sticky-cell-pane']}></div>);
+      return (<div className={styles.stickyCellPane}></div>);
     }
   };
 
