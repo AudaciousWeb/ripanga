@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './RipangaCaret.scss';
+import styles from './Ripanga.scss';
 import cx from 'classnames';
 
 const RipangaCaret = ({

@@ -101,7 +101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Ripanga2 = _interopRequireDefault(_Ripanga);
 
-	var _RipangaReducer = __webpack_require__(165);
+	var _RipangaReducer = __webpack_require__(163);
 
 	var _RipangaReducer2 = _interopRequireDefault(_RipangaReducer);
 
@@ -2142,15 +2142,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _RipangaHeadRow2 = _interopRequireDefault(_RipangaHeadRow);
 
-	var _RipangaBodyRows = __webpack_require__(157);
+	var _RipangaBodyRows = __webpack_require__(155);
 
 	var _RipangaBodyRows2 = _interopRequireDefault(_RipangaBodyRows);
 
-	var _RipangaStickyCells = __webpack_require__(162);
+	var _RipangaStickyCells = __webpack_require__(160);
 
 	var _RipangaStickyCells2 = _interopRequireDefault(_RipangaStickyCells);
 
-	var _RipangaInterface = __webpack_require__(163);
+	var _RipangaInterface = __webpack_require__(161);
 
 	var _RipangaInterface2 = _interopRequireDefault(_RipangaInterface);
 
@@ -4688,7 +4688,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "[type=range] {\n  background: 0;\n  -webkit-appearance: none;\n  margin: 9px 0;\n  width: 100%; }\n  [type=range]::-ms-tooltip {\n    display: none; }\n  [type=range]:focus {\n    outline: none; }\n  [type=range]::-webkit-slider-runnable-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 5px; }\n  [type=range]::-webkit-slider-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px;\n    -webkit-appearance: none;\n    margin-top: -7px; }\n  [type=range]:focus::-webkit-slider-runnable-track {\n    background: #b8b9bb; }\n  [type=range]::-moz-range-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 5px; }\n  [type=range]::-moz-range-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px; }\n  [type=range]::-moz-focus-outer {\n    border: 0; }\n  [type=range]::-ms-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    background: transparent;\n    border-color: transparent;\n    color: transparent; }\n  [type=range]::-ms-fill-lower {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #9e9fa1;\n    border: 1px solid #d8d8d8;\n    border-radius: 10px; }\n  [type=range]::-ms-fill-upper {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 10px; }\n  [type=range]::-ms-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px;\n    margin: 0; }\n  [type=range]:focus::-ms-fill-lower {\n    background: #abacae; }\n  [type=range]:focus::-ms-fill-upper {\n    background: #b8b9bb; }\n\n.Ripanga__container___Ofnqz {\n  overflow: hidden;\n  position: relative; }\n\n.Ripanga__headContainer___2bKh7 {\n  border: solid #c3c2c2;\n  border-width: 1px 0 1px 1px;\n  cursor: default;\n  left: 0;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  z-index: 2; }\n\n.Ripanga__bodyContainer___3iIHo {\n  border: solid #c3c2c2;\n  border-width: 0 0 0 1px;\n  overflow: auto;\n  z-index: 1; }\n\n.Ripanga__head___13GZv {\n  background: #e7e7e7;\n  font-size: 11px;\n  table-layout: fixed; }\n  .Ripanga__head___13GZv th {\n    border-right: 1px solid #c3c2c2;\n    font-weight: bold;\n    line-height: 20px;\n    overflow: hidden;\n    padding: 10px;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n  .Ripanga__head___13GZv .Ripanga__columnSort___3rlFx {\n    white-space: normal; }\n  .Ripanga__head___13GZv .Ripanga__sortable___34Ii6 {\n    cursor: pointer; }\n  .Ripanga__head___13GZv .Ripanga__label___qQjAr {\n    display: inline-block;\n    margin-right: 5px; }\n\n.Ripanga__body___3ZTlv {\n  position: relative; }\n  .Ripanga__body___3ZTlv td {\n    border-right: 1px solid #c3c2c2;\n    border-bottom: 1px solid #c3c2c2;\n    font-size: 11px;\n    padding: 10px;\n    position: relative; }\n\n.Ripanga__groupRow___3rO1h {\n  background: #f2f2f2; }\n  .Ripanga__groupRow___3rO1h .Ripanga__controls___oypzM {\n    display: inline-block;\n    padding: 0 10px; }\n  .Ripanga__groupRow___3rO1h .Ripanga__title___2iOMx {\n    display: inline-block; }\n  .Ripanga__groupRow___3rO1h td {\n    padding: 0;\n    vertical-align: middle; }\n\n.Ripanga__caret___2UmVp {\n  color: #676767;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 11px;\n  height: 20px;\n  line-height: 20px;\n  text-align: center;\n  transition: transform 0.2s ease;\n  width: 20px; }\n  .Ripanga__caret___2UmVp.Ripanga__closed___3xJMU, .Ripanga__caret___2UmVp.Ripanga__disabled___2aL6A {\n    transform: rotate(-180deg); }\n  .Ripanga__caret___2UmVp.Ripanga__disabled___2aL6A {\n    color: #c3c2c2;\n    pointer: not-allowed; }\n\n.Ripanga__groupPane___1xUfU .Ripanga__inside___1saYJ {\n  height: 300px;\n  max-height: 300px;\n  transition: all 0.5s ease; }\n\n.Ripanga__groupPane___1xUfU .Ripanga__hidden___cm8_R {\n  max-height: 0px;\n  overflow: hidden; }\n\n.Ripanga__stickyCell___1_K6i {\n  backround: red;\n  border: solid #c3c2c2;\n  border-width: 0 1px 1px 1px;\n  text-align: center; }\n\n.Ripanga__stickyCellGroup___N27NA {\n  background: #f2f2f2;\n  padding: 0;\n  text-align: right; }\n\n.Ripanga__stickyCellHead___1ekVw {\n  background: #e7e7e7;\n  border-top: 1px solid #c3c2c2;\n  padding: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  text-align: center;\n  z-index: 3; }\n  .Ripanga__stickyCellHead___1ekVw .Ripanga__horizontalScroller___IFpDt {\n    height: 14px;\n    left: 50%;\n    margin-left: -40px;\n    margin-top: -7px;\n    padding: 0;\n    position: absolute;\n    top: 50%;\n    width: 80px; }\n\n.Ripanga__stickyCellPane___3tQwa {\n  border: solid #c3c2c2;\n  border-width: 0 0 0 1px; }\n\n.Ripanga__stickyContainer___yCqKx {\n  background: #fff;\n  border-top: 1px solid #c3c2c2;\n  position: absolute;\n  overflow: hidden;\n  right: 0;\n  top: 0;\n  width: 110px; }\n", ""]);
+	exports.push([module.id, "[type=range] {\n  background: 0;\n  -webkit-appearance: none;\n  margin: 9px 0;\n  width: 100%; }\n  [type=range]::-ms-tooltip {\n    display: none; }\n  [type=range]:focus {\n    outline: none; }\n  [type=range]::-webkit-slider-runnable-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 5px; }\n  [type=range]::-webkit-slider-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px;\n    -webkit-appearance: none;\n    margin-top: -7px; }\n  [type=range]:focus::-webkit-slider-runnable-track {\n    background: #b8b9bb; }\n  [type=range]::-moz-range-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 5px; }\n  [type=range]::-moz-range-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px; }\n  [type=range]::-moz-focus-outer {\n    border: 0; }\n  [type=range]::-ms-track {\n    width: 100%;\n    height: 6px;\n    cursor: pointer;\n    transition: all .2s ease;\n    background: transparent;\n    border-color: transparent;\n    color: transparent; }\n  [type=range]::-ms-fill-lower {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #9e9fa1;\n    border: 1px solid #d8d8d8;\n    border-radius: 10px; }\n  [type=range]::-ms-fill-upper {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background: #abacae;\n    border: 1px solid #d8d8d8;\n    border-radius: 10px; }\n  [type=range]::-ms-thumb {\n    box-shadow: 0 0 0 #000, 0 0 0 #0d0d0d;\n    background-color: #fff;\n    background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cD    ovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNiI+DQogICA    gPHBhdGggZmlsbD0iIzI0MjQyNCIgZD0iTTQsOCBMNywxMSBMNyw1IFoiLz4NCiAgICA8    cGF0aCBmaWxsPSIjMjQyNDI0IiBkPSJNMTYsOCBMMTMsMTEgTDEzLDUgWiIvPg0KPC9zd    mc+DQo=\");\n    background-position: center center;\n    border-radius: 1px;\n    border: 1px solid #dfdfdf;\n    cursor: pointer;\n    height: 18px;\n    width: 22px;\n    margin: 0; }\n  [type=range]:focus::-ms-fill-lower {\n    background: #abacae; }\n  [type=range]:focus::-ms-fill-upper {\n    background: #b8b9bb; }\n\n.Ripanga__container___Ofnqz {\n  overflow: hidden;\n  position: relative; }\n\n.Ripanga__headContainer___2bKh7 {\n  border: solid #c3c2c2;\n  border-width: 1px 0 1px 1px;\n  cursor: default;\n  left: 0;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  z-index: 2; }\n\n.Ripanga__bodyContainer___3iIHo {\n  border: solid #c3c2c2;\n  border-width: 0 0 0 1px;\n  overflow: auto;\n  z-index: 1; }\n\n.Ripanga__head___13GZv {\n  background: #e7e7e7;\n  font-size: 11px;\n  table-layout: fixed; }\n  .Ripanga__head___13GZv th {\n    border-right: 1px solid #c3c2c2;\n    font-weight: bold;\n    line-height: 20px;\n    overflow: hidden;\n    padding: 10px;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n  .Ripanga__head___13GZv .Ripanga__columnSort___3rlFx {\n    white-space: normal; }\n  .Ripanga__head___13GZv .Ripanga__sortable___34Ii6 {\n    cursor: pointer; }\n  .Ripanga__head___13GZv .Ripanga__label___qQjAr {\n    display: inline-block;\n    margin-right: 5px; }\n\n.Ripanga__body___3ZTlv {\n  position: relative; }\n  .Ripanga__body___3ZTlv td {\n    border-right: 1px solid #c3c2c2;\n    border-bottom: 1px solid #c3c2c2;\n    font-size: 11px;\n    padding: 10px;\n    position: relative; }\n\n.Ripanga__groupRow___3rO1h {\n  background: #f2f2f2; }\n  .Ripanga__groupRow___3rO1h .Ripanga__controls___oypzM {\n    display: inline-block;\n    padding: 0 10px; }\n  .Ripanga__groupRow___3rO1h .Ripanga__title___2iOMx {\n    display: inline-block; }\n  .Ripanga__groupRow___3rO1h td {\n    padding: 0;\n    vertical-align: middle; }\n\n.Ripanga__caret___2UmVp {\n  color: #676767;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 11px;\n  height: 20px;\n  line-height: 20px;\n  text-align: center;\n  transition: transform 0.2s ease;\n  width: 20px; }\n  .Ripanga__caret___2UmVp.Ripanga__closed___3xJMU, .Ripanga__caret___2UmVp.Ripanga__disabled___2aL6A {\n    transform: rotate(-180deg); }\n  .Ripanga__caret___2UmVp.Ripanga__disabled___2aL6A {\n    color: #c3c2c2;\n    pointer: not-allowed; }\n\n.Ripanga__groupPane___1xUfU .Ripanga__inside___1saYJ {\n  height: 300px;\n  max-height: 300px;\n  transition: all 0.5s ease; }\n\n.Ripanga__groupPane___1xUfU .Ripanga__hidden___cm8_R {\n  max-height: 0px;\n  overflow: hidden; }\n\n.Ripanga__stickyCell___1_K6i {\n  border: solid #c3c2c2;\n  border-width: 0 1px 1px 1px;\n  text-align: center; }\n\n.Ripanga__stickyCellGroup___N27NA {\n  background: #f2f2f2;\n  padding: 0;\n  text-align: right; }\n\n.Ripanga__stickyCellHead___1ekVw {\n  background: #e7e7e7;\n  border-top: 1px solid #c3c2c2;\n  padding: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  text-align: center;\n  z-index: 3; }\n  .Ripanga__stickyCellHead___1ekVw .Ripanga__horizontalScroller___IFpDt {\n    height: 14px;\n    left: 50%;\n    margin-left: -40px;\n    margin-top: -7px;\n    padding: 0;\n    position: absolute;\n    top: 50%;\n    width: 80px; }\n\n.Ripanga__stickyCellPane___3tQwa {\n  border: solid #c3c2c2;\n  border-width: 0 0 0 1px; }\n\n.Ripanga__stickyContainer___yCqKx {\n  background: #fff;\n  border-top: 1px solid #c3c2c2;\n  position: absolute;\n  overflow: hidden;\n  right: 0;\n  top: 0;\n  width: 110px; }\n", ""]);
 
 	// exports
 	exports.locals = {
@@ -5662,9 +5662,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RipangaCaret = __webpack_require__(155);
+	var _Ripanga = __webpack_require__(144);
 
-	var _RipangaCaret2 = _interopRequireDefault(_RipangaCaret);
+	var _Ripanga2 = _interopRequireDefault(_Ripanga);
 
 	var _classnames = __webpack_require__(148);
 
@@ -5681,7 +5681,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: (0, _classnames2.default)(_RipangaCaret2.default['ripanga-caret'], (_cx = {}, (0, _defineProperty3.default)(_cx, _RipangaCaret2.default.closed, closed), (0, _defineProperty3.default)(_cx, _RipangaCaret2.default.disabled, disabled), _cx)),
+	    { className: (0, _classnames2.default)(_Ripanga2.default['ripanga-caret'], (_cx = {}, (0, _defineProperty3.default)(_cx, _Ripanga2.default.closed, closed), (0, _defineProperty3.default)(_cx, _Ripanga2.default.disabled, disabled), _cx)),
 	      onClick: onClick
 	    },
 	    _react2.default.createElement('i', { className: 'fa fa-chevron-down' })
@@ -5692,50 +5692,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 155 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(156);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(147)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js?localIdentName=[name]__[local]___[hash:base64:5]&modules&importLoaders=1!./../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!./../node_modules/sass-loader/index.js!./RipangaCaret.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js?localIdentName=[name]__[local]___[hash:base64:5]&modules&importLoaders=1!./../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!./../node_modules/sass-loader/index.js!./RipangaCaret.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 156 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(146)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".RipangaCaret__caret___21WbM {\n  color: #676767;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 11px;\n  height: 20px;\n  line-height: 20px;\n  text-align: center;\n  transition: transform 0.2s ease;\n  width: 20px; }\n  .RipangaCaret__caret___21WbM.RipangaCaret__closed___3plEu, .RipangaCaret__caret___21WbM.RipangaCaret__disabled___qNXdr {\n    transform: rotate(-180deg); }\n  .RipangaCaret__caret___21WbM.RipangaCaret__disabled___qNXdr {\n    color: #c3c2c2;\n    pointer: not-allowed; }\n", ""]);
-
-	// exports
-	exports.locals = {
-		"caret": "RipangaCaret__caret___21WbM",
-		"closed": "RipangaCaret__closed___3plEu",
-		"disabled": "RipangaCaret__disabled___qNXdr"
-	};
-
-/***/ },
-/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5760,15 +5716,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Ripanga2 = _interopRequireDefault(_Ripanga);
 
-	var _RipangaGroupPane = __webpack_require__(158);
+	var _RipangaGroupPane = __webpack_require__(156);
 
 	var _RipangaGroupPane2 = _interopRequireDefault(_RipangaGroupPane);
 
-	var _RipangaGroupRow = __webpack_require__(159);
+	var _RipangaGroupRow = __webpack_require__(157);
 
 	var _RipangaGroupRow2 = _interopRequireDefault(_RipangaGroupRow);
 
-	var _RipangaBodyRow = __webpack_require__(160);
+	var _RipangaBodyRow = __webpack_require__(158);
 
 	var _RipangaBodyRow2 = _interopRequireDefault(_RipangaBodyRow);
 
@@ -5881,7 +5837,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaBodyRows;
 
 /***/ },
-/* 158 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5985,7 +5941,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaGroupPane;
 
 /***/ },
-/* 159 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6082,7 +6038,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaGroupRow;
 
 /***/ },
-/* 160 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6118,7 +6074,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(161);
+	var _lodash = __webpack_require__(159);
 
 	var _Ripanga = __webpack_require__(144);
 
@@ -6266,7 +6222,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaBodyRow;
 
 /***/ },
-/* 161 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -23338,7 +23294,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(26)(module)))
 
 /***/ },
-/* 162 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23429,7 +23385,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaStickyCells;
 
 /***/ },
-/* 163 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23444,11 +23400,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRedux = __webpack_require__(4);
 
-	var _RipangaDispatch = __webpack_require__(164);
+	var _RipangaDispatch = __webpack_require__(162);
 
 	var _RipangaDispatch2 = _interopRequireDefault(_RipangaDispatch);
 
-	var _RipangaSelector = __webpack_require__(179);
+	var _RipangaSelector = __webpack_require__(177);
 
 	var _RipangaSelector2 = _interopRequireDefault(_RipangaSelector);
 
@@ -23465,7 +23421,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaInterface;
 
 /***/ },
-/* 164 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23476,7 +23432,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _redux = __webpack_require__(12);
 
-	var _RipangaReducer = __webpack_require__(165);
+	var _RipangaReducer = __webpack_require__(163);
 
 	exports.default = function (dispatch) {
 	  return {
@@ -23495,7 +23451,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 165 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23515,9 +23471,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _handleActions;
 
-	var _reduxActions = __webpack_require__(166);
+	var _reduxActions = __webpack_require__(164);
 
-	var _immutable = __webpack_require__(178);
+	var _immutable = __webpack_require__(176);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23588,7 +23544,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = reducer;
 
 /***/ },
-/* 166 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23597,15 +23553,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _createAction = __webpack_require__(167);
+	var _createAction = __webpack_require__(165);
 
 	var _createAction2 = _interopRequireDefault(_createAction);
 
-	var _handleAction = __webpack_require__(168);
+	var _handleAction = __webpack_require__(166);
 
 	var _handleAction2 = _interopRequireDefault(_handleAction);
 
-	var _handleActions = __webpack_require__(175);
+	var _handleActions = __webpack_require__(173);
 
 	var _handleActions2 = _interopRequireDefault(_handleActions);
 
@@ -23614,7 +23570,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.handleActions = _handleActions2['default'];
 
 /***/ },
-/* 167 */
+/* 165 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23643,7 +23599,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 168 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23651,7 +23607,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports['default'] = handleAction;
 
-	var _fluxStandardAction = __webpack_require__(169);
+	var _fluxStandardAction = __webpack_require__(167);
 
 	function isFunction(val) {
 	  return typeof val === 'function';
@@ -23679,7 +23635,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 169 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23690,7 +23646,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(170);
+	var _lodashIsplainobject = __webpack_require__(168);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -23709,7 +23665,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 170 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23720,9 +23676,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(171),
-	    isArguments = __webpack_require__(172),
-	    keysIn = __webpack_require__(173);
+	var baseFor = __webpack_require__(169),
+	    isArguments = __webpack_require__(170),
+	    keysIn = __webpack_require__(171);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -23818,7 +23774,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 171 */
+/* 169 */
 /***/ function(module, exports) {
 
 	/**
@@ -23872,7 +23828,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 172 */
+/* 170 */
 /***/ function(module, exports) {
 
 	/**
@@ -24107,7 +24063,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 173 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24118,8 +24074,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(172),
-	    isArray = __webpack_require__(174);
+	var isArguments = __webpack_require__(170),
+	    isArray = __webpack_require__(172);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -24245,7 +24201,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 174 */
+/* 172 */
 /***/ function(module, exports) {
 
 	/**
@@ -24431,7 +24387,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 175 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24441,15 +24397,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _handleAction = __webpack_require__(168);
+	var _handleAction = __webpack_require__(166);
 
 	var _handleAction2 = _interopRequireDefault(_handleAction);
 
-	var _ownKeys = __webpack_require__(176);
+	var _ownKeys = __webpack_require__(174);
 
 	var _ownKeys2 = _interopRequireDefault(_ownKeys);
 
-	var _reduceReducers = __webpack_require__(177);
+	var _reduceReducers = __webpack_require__(175);
 
 	var _reduceReducers2 = _interopRequireDefault(_reduceReducers);
 
@@ -24467,7 +24423,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 176 */
+/* 174 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24492,7 +24448,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 177 */
+/* 175 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24515,7 +24471,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 178 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29499,7 +29455,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}));
 
 /***/ },
-/* 179 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29508,7 +29464,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _reselect = __webpack_require__(180);
+	var _reselect = __webpack_require__(178);
 
 	var ripangaSelector = function ripangaSelector(_ref) {
 	  var reducer = _ref.reducer;
@@ -29539,7 +29495,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 180 */
+/* 178 */
 /***/ function(module, exports) {
 
 	'use strict';
