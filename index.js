@@ -101,7 +101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Ripanga2 = _interopRequireDefault(_Ripanga);
 
-	var _RipangaReducer = __webpack_require__(163);
+	var _RipangaReducer = __webpack_require__(162);
 
 	var _RipangaReducer2 = _interopRequireDefault(_RipangaReducer);
 
@@ -2142,15 +2142,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _RipangaHeadRow2 = _interopRequireDefault(_RipangaHeadRow);
 
-	var _RipangaBodyRows = __webpack_require__(155);
+	var _RipangaBodyRows = __webpack_require__(154);
 
 	var _RipangaBodyRows2 = _interopRequireDefault(_RipangaBodyRows);
 
-	var _RipangaStickyCells = __webpack_require__(160);
+	var _RipangaStickyCells = __webpack_require__(159);
 
 	var _RipangaStickyCells2 = _interopRequireDefault(_RipangaStickyCells);
 
-	var _RipangaInterface = __webpack_require__(161);
+	var _RipangaInterface = __webpack_require__(160);
 
 	var _RipangaInterface2 = _interopRequireDefault(_RipangaInterface);
 
@@ -4459,7 +4459,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _RipangaHeadCell2 = _interopRequireDefault(_RipangaHeadCell);
 
-	var _RipangaCaret = __webpack_require__(154);
+	var _RipangaCaret = __webpack_require__(153);
 
 	var _RipangaCaret2 = _interopRequireDefault(_RipangaCaret);
 
@@ -5058,14 +5058,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var stringify = __webpack_require__(150);
-	var parse = __webpack_require__(153);
-	var formats = __webpack_require__(152);
+	var Stringify = __webpack_require__(150);
+	var Parse = __webpack_require__(152);
 
 	module.exports = {
-	    formats: formats,
-	    parse: parse,
-	    stringify: stringify
+	    stringify: Stringify,
+	    parse: Parse
 	};
 
 
@@ -5075,8 +5073,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var utils = __webpack_require__(151);
-	var formats = __webpack_require__(152);
+	var Utils = __webpack_require__(151);
 
 	var arrayPrefixGenerators = {
 	    brackets: function brackets(prefix) {
@@ -5090,25 +5087,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 
-	var toISO = Date.prototype.toISOString;
-
 	var defaults = {
 	    delimiter: '&',
-	    encode: true,
-	    encoder: utils.encode,
-	    serializeDate: function serializeDate(date) {
-	        return toISO.call(date);
-	    },
+	    strictNullHandling: false,
 	    skipNulls: false,
-	    strictNullHandling: false
+	    encode: true,
+	    encoder: Utils.encode
 	};
 
-	var stringify = function stringify(object, prefix, generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots, serializeDate, formatter) {
+	var stringify = function stringify(object, prefix, generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots) {
 	    var obj = object;
 	    if (typeof filter === 'function') {
 	        obj = filter(prefix, obj);
 	    } else if (obj instanceof Date) {
-	        obj = serializeDate(obj);
+	        obj = obj.toISOString();
 	    } else if (obj === null) {
 	        if (strictNullHandling) {
 	            return encoder ? encoder(prefix) : prefix;
@@ -5117,11 +5109,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        obj = '';
 	    }
 
-	    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || utils.isBuffer(obj)) {
+	    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || Utils.isBuffer(obj)) {
 	        if (encoder) {
-	            return [formatter(encoder(prefix)) + '=' + formatter(encoder(obj))];
+	            return [encoder(prefix) + '=' + encoder(obj)];
 	        }
-	        return [formatter(prefix) + '=' + formatter(String(obj))];
+	        return [prefix + '=' + String(obj)];
 	    }
 
 	    var values = [];
@@ -5146,33 +5138,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        if (Array.isArray(obj)) {
-	            values = values.concat(stringify(
-	                obj[key],
-	                generateArrayPrefix(prefix, key),
-	                generateArrayPrefix,
-	                strictNullHandling,
-	                skipNulls,
-	                encoder,
-	                filter,
-	                sort,
-	                allowDots,
-	                serializeDate,
-	                formatter
-	            ));
+	            values = values.concat(stringify(obj[key], generateArrayPrefix(prefix, key), generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots));
 	        } else {
-	            values = values.concat(stringify(
-	                obj[key],
-	                prefix + (allowDots ? '.' + key : '[' + key + ']'),
-	                generateArrayPrefix,
-	                strictNullHandling,
-	                skipNulls,
-	                encoder,
-	                filter,
-	                sort,
-	                allowDots,
-	                serializeDate,
-	                formatter
-	            ));
+	            values = values.concat(stringify(obj[key], prefix + (allowDots ? '.' + key : '[' + key + ']'), generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots));
 	        }
 	    }
 
@@ -5189,13 +5157,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var encoder = encode ? (typeof options.encoder === 'function' ? options.encoder : defaults.encoder) : null;
 	    var sort = typeof options.sort === 'function' ? options.sort : null;
 	    var allowDots = typeof options.allowDots === 'undefined' ? false : options.allowDots;
-	    var serializeDate = typeof options.serializeDate === 'function' ? options.serializeDate : defaults.serializeDate;
-	    if (typeof options.format === 'undefined') {
-	        options.format = formats.default;
-	    } else if (!Object.prototype.hasOwnProperty.call(formats.formatters, options.format)) {
-	        throw new TypeError('Unknown format option provided.');
-	    }
-	    var formatter = formats.formatters[options.format];
 	    var objKeys;
 	    var filter;
 
@@ -5207,8 +5168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        filter = options.filter;
 	        obj = filter('', obj);
 	    } else if (Array.isArray(options.filter)) {
-	        filter = options.filter;
-	        objKeys = filter;
+	        objKeys = filter = options.filter;
 	    }
 
 	    var keys = [];
@@ -5243,19 +5203,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            continue;
 	        }
 
-	        keys = keys.concat(stringify(
-	            obj[key],
-	            key,
-	            generateArrayPrefix,
-	            strictNullHandling,
-	            skipNulls,
-	            encoder,
-	            filter,
-	            sort,
-	            allowDots,
-	            serializeDate,
-	            formatter
-	        ));
+	        keys = keys.concat(stringify(obj[key], key, generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter, sort, allowDots));
 	    }
 
 	    return keys.join(delimiter);
@@ -5268,19 +5216,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var has = Object.prototype.hasOwnProperty;
-
 	var hexTable = (function () {
-	    var array = [];
+	    var array = new Array(256);
 	    for (var i = 0; i < 256; ++i) {
-	        array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
+	        array[i] = '%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase();
 	    }
 
 	    return array;
 	}());
 
 	exports.arrayToObject = function (source, options) {
-	    var obj = options && options.plainObjects ? Object.create(null) : {};
+	    var obj = options.plainObjects ? Object.create(null) : {};
 	    for (var i = 0; i < source.length; ++i) {
 	        if (typeof source[i] !== 'undefined') {
 	            obj[i] = source[i];
@@ -5314,21 +5260,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var mergeTarget = target;
 	    if (Array.isArray(target) && !Array.isArray(source)) {
 	        mergeTarget = exports.arrayToObject(target, options);
-	    }
-
-	    if (Array.isArray(target) && Array.isArray(source)) {
-	        source.forEach(function (item, i) {
-	            if (has.call(target, i)) {
-	                if (target[i] && typeof target[i] === 'object') {
-	                    target[i] = exports.merge(target[i], item, options);
-	                } else {
-	                    target.push(item);
-	                }
-	            } else {
-	                target[i] = item;
-	            }
-	        });
-	        return target;
 	    }
 
 	    return Object.keys(source).reduce(function (acc, key) {
@@ -5428,9 +5359,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    var keys = Object.keys(obj);
-	    keys.forEach(function (key) {
+	    for (var j = 0; j < keys.length; ++j) {
+	        var key = keys[j];
 	        obj[key] = exports.compact(obj[key], refs);
-	    });
+	    }
 
 	    return obj;
 	};
@@ -5450,48 +5382,22 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 152 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var replace = String.prototype.replace;
-	var percentTwenties = /%20/g;
-
-	module.exports = {
-	    'default': 'RFC3986',
-	    formatters: {
-	        RFC1738: function (value) {
-	            return replace.call(value, percentTwenties, '+');
-	        },
-	        RFC3986: function (value) {
-	            return value;
-	        }
-	    },
-	    RFC1738: 'RFC1738',
-	    RFC3986: 'RFC3986'
-	};
-
-
-/***/ },
-/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(151);
-
-	var has = Object.prototype.hasOwnProperty;
+	var Utils = __webpack_require__(151);
 
 	var defaults = {
-	    allowDots: false,
-	    allowPrototypes: false,
-	    arrayLimit: 20,
-	    decoder: utils.decode,
 	    delimiter: '&',
 	    depth: 5,
+	    arrayLimit: 20,
 	    parameterLimit: 1000,
+	    strictNullHandling: false,
 	    plainObjects: false,
-	    strictNullHandling: false
+	    allowPrototypes: false,
+	    allowDots: false,
+	    decoder: Utils.decode
 	};
 
 	var parseValues = function parseValues(str, options) {
@@ -5502,18 +5408,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var part = parts[i];
 	        var pos = part.indexOf(']=') === -1 ? part.indexOf('=') : part.indexOf(']=') + 1;
 
-	        var key, val;
 	        if (pos === -1) {
-	            key = options.decoder(part);
-	            val = options.strictNullHandling ? null : '';
+	            obj[options.decoder(part)] = '';
+
+	            if (options.strictNullHandling) {
+	                obj[options.decoder(part)] = null;
+	            }
 	        } else {
-	            key = options.decoder(part.slice(0, pos));
-	            val = options.decoder(part.slice(pos + 1));
-	        }
-	        if (has.call(obj, key)) {
-	            obj[key] = [].concat(obj[key]).concat(val);
-	        } else {
-	            obj[key] = val;
+	            var key = options.decoder(part.slice(0, pos));
+	            var val = options.decoder(part.slice(pos + 1));
+
+	            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+	                obj[key] = [].concat(obj[key]).concat(val);
+	            } else {
+	                obj[key] = val;
+	            }
 	        }
 	    }
 
@@ -5575,7 +5484,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (segment[1]) {
 	        // If we aren't using plain objects, optionally prefix keys
 	        // that would overwrite object prototype properties
-	        if (!options.plainObjects && has.call(Object.prototype, segment[1])) {
+	        if (!options.plainObjects && Object.prototype.hasOwnProperty(segment[1])) {
 	            if (!options.allowPrototypes) {
 	                return;
 	            }
@@ -5589,7 +5498,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var i = 0;
 	    while ((segment = child.exec(key)) !== null && i < options.depth) {
 	        i += 1;
-	        if (!options.plainObjects && has.call(Object.prototype, segment[1].replace(/\[|\]/g, ''))) {
+	        if (!options.plainObjects && Object.prototype.hasOwnProperty(segment[1].replace(/\[|\]/g, ''))) {
 	            if (!options.allowPrototypes) {
 	                continue;
 	            }
@@ -5613,7 +5522,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        throw new TypeError('Decoder has to be a function.');
 	    }
 
-	    options.delimiter = typeof options.delimiter === 'string' || utils.isRegExp(options.delimiter) ? options.delimiter : defaults.delimiter;
+	    options.delimiter = typeof options.delimiter === 'string' || Utils.isRegExp(options.delimiter) ? options.delimiter : defaults.delimiter;
 	    options.depth = typeof options.depth === 'number' ? options.depth : defaults.depth;
 	    options.arrayLimit = typeof options.arrayLimit === 'number' ? options.arrayLimit : defaults.arrayLimit;
 	    options.parseArrays = options.parseArrays !== false;
@@ -5637,15 +5546,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    for (var i = 0; i < keys.length; ++i) {
 	        var key = keys[i];
 	        var newObj = parseKeys(key, tempObj[key], options);
-	        obj = utils.merge(obj, newObj, options);
+	        obj = Utils.merge(obj, newObj, options);
 	    }
 
-	    return utils.compact(obj);
+	    return Utils.compact(obj);
 	};
 
 
 /***/ },
-/* 154 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5691,7 +5600,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaCaret;
 
 /***/ },
-/* 155 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5716,15 +5625,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Ripanga2 = _interopRequireDefault(_Ripanga);
 
-	var _RipangaGroupPane = __webpack_require__(156);
+	var _RipangaGroupPane = __webpack_require__(155);
 
 	var _RipangaGroupPane2 = _interopRequireDefault(_RipangaGroupPane);
 
-	var _RipangaGroupRow = __webpack_require__(157);
+	var _RipangaGroupRow = __webpack_require__(156);
 
 	var _RipangaGroupRow2 = _interopRequireDefault(_RipangaGroupRow);
 
-	var _RipangaBodyRow = __webpack_require__(158);
+	var _RipangaBodyRow = __webpack_require__(157);
 
 	var _RipangaBodyRow2 = _interopRequireDefault(_RipangaBodyRow);
 
@@ -5837,7 +5746,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaBodyRows;
 
 /***/ },
-/* 156 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5941,7 +5850,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaGroupPane;
 
 /***/ },
-/* 157 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5954,7 +5863,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RipangaCaret = __webpack_require__(154);
+	var _RipangaCaret = __webpack_require__(153);
 
 	var _RipangaCaret2 = _interopRequireDefault(_RipangaCaret);
 
@@ -6038,7 +5947,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaGroupRow;
 
 /***/ },
-/* 158 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6074,7 +5983,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(159);
+	var _lodash = __webpack_require__(158);
 
 	var _Ripanga = __webpack_require__(144);
 
@@ -6222,7 +6131,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaBodyRow;
 
 /***/ },
-/* 159 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -23294,7 +23203,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(26)(module)))
 
 /***/ },
-/* 160 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23385,7 +23294,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaStickyCells;
 
 /***/ },
-/* 161 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23400,11 +23309,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRedux = __webpack_require__(4);
 
-	var _RipangaDispatch = __webpack_require__(162);
+	var _RipangaDispatch = __webpack_require__(161);
 
 	var _RipangaDispatch2 = _interopRequireDefault(_RipangaDispatch);
 
-	var _RipangaSelector = __webpack_require__(177);
+	var _RipangaSelector = __webpack_require__(176);
 
 	var _RipangaSelector2 = _interopRequireDefault(_RipangaSelector);
 
@@ -23421,7 +23330,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = RipangaInterface;
 
 /***/ },
-/* 162 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23432,7 +23341,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _redux = __webpack_require__(12);
 
-	var _RipangaReducer = __webpack_require__(163);
+	var _RipangaReducer = __webpack_require__(162);
 
 	exports.default = function (dispatch) {
 	  return {
@@ -23451,7 +23360,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 163 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23471,9 +23380,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _handleActions;
 
-	var _reduxActions = __webpack_require__(164);
+	var _reduxActions = __webpack_require__(163);
 
-	var _immutable = __webpack_require__(176);
+	var _immutable = __webpack_require__(175);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23544,7 +23453,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = reducer;
 
 /***/ },
-/* 164 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23553,15 +23462,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _createAction = __webpack_require__(165);
+	var _createAction = __webpack_require__(164);
 
 	var _createAction2 = _interopRequireDefault(_createAction);
 
-	var _handleAction = __webpack_require__(166);
+	var _handleAction = __webpack_require__(165);
 
 	var _handleAction2 = _interopRequireDefault(_handleAction);
 
-	var _handleActions = __webpack_require__(173);
+	var _handleActions = __webpack_require__(172);
 
 	var _handleActions2 = _interopRequireDefault(_handleActions);
 
@@ -23570,7 +23479,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.handleActions = _handleActions2['default'];
 
 /***/ },
-/* 165 */
+/* 164 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23599,7 +23508,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 166 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23607,7 +23516,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports['default'] = handleAction;
 
-	var _fluxStandardAction = __webpack_require__(167);
+	var _fluxStandardAction = __webpack_require__(166);
 
 	function isFunction(val) {
 	  return typeof val === 'function';
@@ -23635,7 +23544,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 167 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23646,7 +23555,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(168);
+	var _lodashIsplainobject = __webpack_require__(167);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -23665,7 +23574,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 168 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23676,9 +23585,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(169),
-	    isArguments = __webpack_require__(170),
-	    keysIn = __webpack_require__(171);
+	var baseFor = __webpack_require__(168),
+	    isArguments = __webpack_require__(169),
+	    keysIn = __webpack_require__(170);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -23774,7 +23683,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 169 */
+/* 168 */
 /***/ function(module, exports) {
 
 	/**
@@ -23828,7 +23737,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 170 */
+/* 169 */
 /***/ function(module, exports) {
 
 	/**
@@ -24063,7 +23972,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 171 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24074,8 +23983,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(170),
-	    isArray = __webpack_require__(172);
+	var isArguments = __webpack_require__(169),
+	    isArray = __webpack_require__(171);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -24201,7 +24110,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 172 */
+/* 171 */
 /***/ function(module, exports) {
 
 	/**
@@ -24387,7 +24296,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 173 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24397,15 +24306,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _handleAction = __webpack_require__(166);
+	var _handleAction = __webpack_require__(165);
 
 	var _handleAction2 = _interopRequireDefault(_handleAction);
 
-	var _ownKeys = __webpack_require__(174);
+	var _ownKeys = __webpack_require__(173);
 
 	var _ownKeys2 = _interopRequireDefault(_ownKeys);
 
-	var _reduceReducers = __webpack_require__(175);
+	var _reduceReducers = __webpack_require__(174);
 
 	var _reduceReducers2 = _interopRequireDefault(_reduceReducers);
 
@@ -24423,7 +24332,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 174 */
+/* 173 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24448,7 +24357,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 175 */
+/* 174 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24471,7 +24380,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 176 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29455,7 +29364,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}));
 
 /***/ },
-/* 177 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29464,7 +29373,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _reselect = __webpack_require__(178);
+	var _reselect = __webpack_require__(177);
 
 	var ripangaSelector = function ripangaSelector(_ref) {
 	  var reducer = _ref.reducer;
@@ -29495,7 +29404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 178 */
+/* 177 */
 /***/ function(module, exports) {
 
 	'use strict';
