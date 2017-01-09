@@ -13,7 +13,7 @@
     "url": "git+https://github.com/chrisarevir/ripanga.git"
   },
   "author": "Ben Burlingham and Christian Rivera",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chrisarevir/ripanga/issues"
   },
