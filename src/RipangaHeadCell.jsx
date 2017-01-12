@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import qs from 'qs';
 
@@ -61,9 +61,9 @@ const RipangaHeadCell = ({
 };
 
 RipangaHeadCell.propTypes = {
-  def: React.PropTypes.func,
-  globalKey: React.PropTypes.string,
-  onSort: React.PropTypes.func,
+  def: PropTypes.shape(),
+  globalKey: PropTypes.string,
+  onSort: PropTypes.func,
 };
 
 export default RipangaHeadCell;

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-string-refs */
 import React, { PropTypes } from 'react';
 import Range from 'react-range';
 
@@ -15,17 +16,10 @@ const i18n = {
 @RipangaInterface
 export default class Ripanga extends React.Component {
   static propTypes = {
-    actions: PropTypes.object,
-    columnDefinitions: PropTypes.array,
-    groupIsCollapsed: PropTypes.object,
-    groupIsToggled: PropTypes.object,
-    onSort: PropTypes.func,
-    renderBodyStickyCell: PropTypes.func,
-    renderGroupStickyCell: PropTypes.func,
-    renderGroupStickyPane: PropTypes.func,
-    renderHeadCell: PropTypes.func,
+    actions: PropTypes.shape(),
+    globalKey: PropTypes.bool,
     sliderValue: PropTypes.number,
-    tableData: PropTypes.array,
+    tableData: PropTypes.arrayOf(PropTypes.shape()),
     panelPosition: PropTypes.oneOf(['left', 'right', 'none']),
   };
 
@@ -56,15 +50,18 @@ export default class Ripanga extends React.Component {
     const storedRecords = localStorage.getItem(`${globalKey}/CHECKED`);
     const obj = (storedRecords ? JSON.parse(storedRecords) : {});
     const ids = [];
+
+    // eslint-disable-next-line
     for (let i in obj) {
-      ids.push(parseInt(i));
+      ids.push(parseInt(i, 10));
     }
 
     setChecked({ ids, globalKey });
   }
 
   componentWillReceiveProps(nextProps) {
-    if (JSON.stringify(this.props.tableData) !== JSON.stringify(nextProps.tableData)) {
+    if (JSON.stringify(this.props.tableData)
+    !== JSON.stringify(nextProps.tableData)) {
       this.props.actions.clearCollapsedGroups();
     }
   }
@@ -82,10 +79,56 @@ export default class Ripanga extends React.Component {
     this.resize();
   }
 
-  stickyHeaderActive = () => {
-    const ripangaBounds = this.refs.ripangaContainer.getBoundingClientRect();
-    return ripangaBounds.top < 0;
+  setHeadPosition = (value) => {
+    this.refs.stickyHead.style.position = value;
+    this.refs.headContainer.style.position = value;
+  };
+
+  applyStaticBounds = (side) => {
+    this.setHeadPosition('absolute');
+    this.placePanelStatic(side);
+  };
+
+  applyStickyBounds = (side) => {
+    this.setHeadPosition('fixed');
+    this.placePanelSticky(side);
+  };
+
+  hideSticky = () => {
+    this.refs.stickyHead.style.display = 'none';
+    this.refs.stickyContainer.style.display = 'none';
   }
+
+  placePanelStatic = (side) => {
+    const {
+      headContainer,
+      stickyContainer,
+      stickyHead,
+      ripangaContainer,
+    } = this.refs;
+
+    const ripangaBounds = ripangaContainer.getBoundingClientRect();
+    const stickyBounds = stickyContainer.getBoundingClientRect();
+
+    switch (side) {
+      case 'right':
+        stickyHead.style.left = `${ripangaBounds.width - stickyBounds.width}px`;
+        stickyContainer.style.right = 0;
+        headContainer.style.left = 0;
+        break;
+      case 'left':
+        stickyHead.style.left = 0;
+        stickyContainer.style.left = 0;
+        headContainer.style.left = `${stickyBounds.width}px`;
+        break;
+      case 'none':
+        this.hideSticky();
+        this.refs.headContainer.style.left = 0;
+        break;
+      default:
+        console.error(`placePanelStatic does not accept side: ${side}`);
+    }
+  };
 
   placePanelSticky = (side) => {
     const {
@@ -119,57 +162,6 @@ export default class Ripanga extends React.Component {
     }
   };
 
-  placePanelStatic = (side) => {
-    const {
-      headContainer,
-      stickyContainer,
-      stickyHead,
-      ripangaContainer,
-    } = this.refs;
-
-    const ripangaBounds = ripangaContainer.getBoundingClientRect();
-    const stickyBounds = stickyContainer.getBoundingClientRect();
-
-    switch (side) {
-      case 'right':
-        stickyHead.style.left = `${ripangaBounds.width - stickyBounds.width}px`;
-        stickyContainer.style.right = 0;
-        headContainer.style.left = 0;
-        break;
-      case 'left':
-        stickyHead.style.left = 0;
-        stickyContainer.style.left = 0;
-        headContainer.style.left = `${stickyBounds.width}px`;
-        break;
-      case 'none':
-        this.hideSticky();
-        this.refs.headContainer.style.left = 0;
-        break;
-      default:
-        console.error(`placePanelStatic does not accept side: ${side}`);
-    }
-  };
-
-  applyStickyBounds = (side) => {
-    this.setHeadPosition('fixed');
-    this.placePanelSticky(side);
-  };
-
-  applyStaticBounds = (side) => {
-    this.setHeadPosition('absolute');
-    this.placePanelStatic(side);
-  };
-
-  setHeadPosition = (value) => {
-    this.refs.stickyHead.style.position = value;
-    this.refs.headContainer.style.position = value;
-  };
-
-  hideSticky = () => {
-    this.refs.stickyHead.style.display = 'none';
-    this.refs.stickyContainer.style.display = 'none';
-  }
-
   // TODO: Throttle window resize and scroll
   recalculateSticky = () => {
     if (this.stickyHeaderActive()) {
@@ -183,6 +175,35 @@ export default class Ripanga extends React.Component {
     this.resizeRipanga();
     this.resizeHead();
     this.resizeSticky();
+  }
+
+  resizeHead = () => {
+    const {
+      bodyContainer,
+      bodyTable,
+      headContainer,
+      headTable,
+    } = this.refs;
+
+    if (bodyTable.rows.length > 0) {
+      const headcells = headTable.rows[0].cells;
+
+      const renderedRow = Array.from(bodyTable.rows).find((row) => {
+        return row.cells.length === headcells.length;
+      });
+
+      if (renderedRow !== undefined) {
+        ([...renderedRow.cells]).forEach((cell, index) => {
+          headTable.rows[0].cells[index].style.width =
+            `${cell.getBoundingClientRect().width}px`;
+        });
+      }
+    }
+
+    headContainer.style.width =
+      `${bodyContainer.getBoundingClientRect().width}px`;
+
+    this.recalculateSticky();
   }
 
   resizeRipanga = () => {
@@ -215,35 +236,6 @@ export default class Ripanga extends React.Component {
     };
 
     setTableContainerPadding(panelPosition);
-  }
-
-  resizeHead = () => {
-    const {
-      bodyContainer,
-      bodyTable,
-      headContainer,
-      headTable,
-    } = this.refs;
-
-    if (bodyTable.rows.length > 0) {
-      const headcells = headTable.rows[0].cells;
-
-      const renderedRow = Array.from(bodyTable.rows).find((row) => {
-        return row.cells.length === headcells.length;
-      });
-
-      if (renderedRow !== undefined) {
-        ([...renderedRow.cells]).forEach((cell, index) => {
-          headTable.rows[0].cells[index].style.width =
-            `${cell.getBoundingClientRect().width}px`;
-        });
-      }
-    }
-
-    headContainer.style.width =
-      `${bodyContainer.getBoundingClientRect().width}px`;
-
-    this.recalculateSticky();
   }
 
   resizeSticky = () => {
@@ -322,6 +314,11 @@ export default class Ripanga extends React.Component {
     this.recalculateSticky();
   }
 
+  stickyHeaderActive = () => {
+    const ripangaBounds = this.refs.ripangaContainer.getBoundingClientRect();
+    return ripangaBounds.top < 0;
+  }
+
   render() {
     const {
       sliderValue = 0,
@@ -362,14 +359,15 @@ export default class Ripanga extends React.Component {
         </div>
 
         <div className={S.stickyCellHead} ref="stickyHead">
-          <Range ref="slider"
-            type="range"
-            min="0"
-            max="50"
+          <Range
             className={S.horizontalScroller}
-            value={sliderValue}
-            onClick={this.props.actions.trackSlider}
+            max="50"
+            min="0"
             onChange={this._scrollSlider}
+            onClick={this.props.actions.trackSlider}
+            ref="slider"
+            type="range"
+            value={sliderValue}
           />
         </div>
       </div>

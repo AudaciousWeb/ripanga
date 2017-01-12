@@ -1,20 +1,21 @@
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: './src/index.js',
 
   module: {
     loaders: [
       {
         loader: 'babel-loader',
         include: [
-          __dirname + '/src'
+          path.join(__dirname, '/src'),
         ],
         test: /\.jsx?$/,
         query: {
           plugins: ['transform-decorators-legacy', 'transform-runtime'],
-          presets: ['latest','react', 'stage-0'],
-        }
+          presets: ['latest', 'react', 'stage-0'],
+        },
       },
       {
         test: /\.scss$/,
@@ -27,19 +28,27 @@ module.exports = {
     path: './',
     filename: 'index.js',
     // publicPath: '/build/',  NOT NEEDED? Ben 161121
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
 
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
       react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom')
-    }
+      'react-dom': path.resolve('./node_modules/react-dom'),
+    },
   },
 
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
+  ],
+
   externals: {
-    'react': 'umd react',
+    react: 'umd react',
     'react-dom': 'umd react-dom',
   },
 };

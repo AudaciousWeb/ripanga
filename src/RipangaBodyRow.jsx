@@ -1,15 +1,38 @@
 import React from 'react';
 import { isEqual } from 'lodash';
-import styles from './Ripanga.scss';
+
+const cloneOrRender = (Component, props) => {
+  if (!Component) {
+    return null;
+  }
+
+  if (React.isValidElement(Component)) {
+    return React.cloneElement(Component, props);
+  }
+
+  return <Component {...props} />;
+};
+
+const defaultCellRenderer = () => {
+  return <td />;
+};
+
+const defaultRowRenderer = (cells) => {
+  return <tr>{cells}</tr>;
+};
 
 export default class RipangaBodyRow extends React.Component {
   static propTypes = {
-    className: React.PropTypes.string,
-    columnDefinitions: React.PropTypes.array,
+    checkedIds: React.PropTypes.shape(),
+    columnDefinitions: React.PropTypes.arrayOf(React.PropTypes.shape()),
+    idKey: React.PropTypes.string,
     renderBodyCell: React.PropTypes.func,
     renderBodyRow: React.PropTypes.func,
-    rowData: React.PropTypes.object,
+    rowData: React.PropTypes.shape(),
     showCheckboxes: React.PropTypes.bool,
+    actions: React.PropTypes.shape(),
+    globalKey: React.PropTypes.string,
+    onCheck: React.PropTypes.func,
   };
 
   /**
@@ -20,27 +43,7 @@ export default class RipangaBodyRow extends React.Component {
     const id = this.props.rowData[this.props.idKey];
 
     return (!isEqual(this.props.rowData, nextProps.rowData)) ||
-      this.props.checkedIds.get(id) != nextProps.checkedIds.get(id);
-  }
-
-  cloneOrRender(Component, props) {
-    if (!Component) {
-      return null;
-    }
-
-    if (React.isValidElement(Component)) {
-      return React.cloneElement(Component, props);
-    }
-
-    return <Component {...props} />;
-  }
-
-  defaultCellRenderer() {
-    return <td></td>;
-  }
-
-  defaultRowRenderer(cells) {
-    return <tr>{cells}</tr>;
+      this.props.checkedIds.get(id) !== nextProps.checkedIds.get(id);
   }
 
   _onCheck = (evt) => {
@@ -81,8 +84,8 @@ export default class RipangaBodyRow extends React.Component {
       }
 
       return renderBodyCell
-          ? renderBodyCell(this.defaultCellRenderer, rowData, i)
-          : this.defaultCellRenderer();
+          ? renderBodyCell(defaultCellRenderer, rowData, i)
+          : defaultCellRenderer();
     });
 
     if (showCheckboxes) {
@@ -107,9 +110,9 @@ export default class RipangaBodyRow extends React.Component {
     const cells = this.renderCells();
 
     if (renderBodyRow) {
-      return renderBodyRow(this.defaultRowRenderer, rowData, cells);
+      return renderBodyRow(defaultRowRenderer, rowData, cells);
     }
 
-    return this.defaultRowRenderer(cells);
+    return defaultRowRenderer(cells);
   }
 }
