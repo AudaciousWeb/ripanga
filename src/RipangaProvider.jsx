@@ -11,7 +11,7 @@ const store = createStore(
   applyMiddleware(thunk),
 );
 
-const RipangaProvider = (props) => (
+const RipangaProvider = props => (
   <Provider store={store}>
     <RipangaComponent {...props} />
   </Provider>
