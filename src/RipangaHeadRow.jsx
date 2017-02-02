@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import RipangaHeadCell from './RipangaHeadCell';
-import RipangaCaret from './RipangaCaret';
-import styles from './Ripanga.scss';
 
 const RipangaHeadRow = ({
   actions,
@@ -31,10 +29,15 @@ const RipangaHeadRow = ({
     evt.target.checked
       ? actions.setChecked({ ids: indices, globalKey, onCheck })
       : actions.setUnchecked({ ids: indices, globalKey, onCheck });
-  }
+  };
 
   const defaultRenderer = (def, i) => {
-    return (<RipangaHeadCell key={`head-${def.sortKey}-${i}`} {...{def, globalKey, onSort }} />);
+    return (
+      <RipangaHeadCell
+        key={`head-${def.sortKey}-${i}`}
+        {...{def, globalKey, onSort }}
+      />
+    );
   };
 
   const renderCell = (def, i) => {
@@ -50,7 +53,7 @@ const RipangaHeadRow = ({
   const cells = columnDefinitions.map(renderCell);
 
   if (showCheckboxes) {
-    cells.unshift(<th className="headControls" key={`headControls`}>
+    cells.unshift(<th className="headControls" key="headControls">
       <input
         type="checkbox"
         checked={indices.length === checkedCount}
@@ -66,6 +69,19 @@ const RipangaHeadRow = ({
       </tr>
     </thead>
   );
+};
+
+RipangaHeadRow.propTypes = {
+  actions: PropTypes.shape(),
+  checkedIds: PropTypes.shape(),
+  columnDefinitions: PropTypes.arrayOf(PropTypes.object),
+  globalKey: PropTypes.string,
+  idKey: PropTypes.string,
+  onCheck: PropTypes.func,
+  onSort: PropTypes.func,
+  renderHeadCell: PropTypes.func,
+  showCheckboxes: PropTypes.bool,
+  tableData: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default RipangaHeadRow;

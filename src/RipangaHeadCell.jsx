@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './Ripanga.scss';
+import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import qs from 'qs';
+
+import styles from './Ripanga.scss';
 
 const DIRECTION = {
   ASC: 'asc',
@@ -13,7 +14,7 @@ const RipangaHeadCell = ({
   globalKey,
   onSort,
 }) => {
-  const url = location.href.split('?');
+  const url = window.location.href.split('?');
   const params = qs.parse(url[1]);
 
   const _onSort = () => {
@@ -28,13 +29,14 @@ const RipangaHeadCell = ({
       : DIRECTION.ASC);
 
     params.sort = { attribute, direction };
+    params.page = 1;
 
     sessionStorage.setItem(`${globalKey}/SORT`, JSON.stringify(params.sort));
 
     history.pushState(
       history.state,
       '',
-      `${url[0]}?${qs.stringify(params, { arrayFormat: "brackets" })}`
+      `${url[0]}?${qs.stringify(params, { arrayFormat: 'brackets' })}`,
     );
 
     onSort();
@@ -48,12 +50,20 @@ const RipangaHeadCell = ({
   }
 
   return (
-    <th onClick={_onSort}
-      className={cx(styles['sortArrow'], {[styles.sortable]: def.sortable })}>
+    <th
+      onClick={_onSort}
+      className={cx(styles.sortArrow, {[styles.sortable]: def.sortable })}
+    >
       <span className={styles.label}>{def.label}</span>
       {arrow}
     </th>
   );
+};
+
+RipangaHeadCell.propTypes = {
+  def: PropTypes.shape(),
+  globalKey: PropTypes.string,
+  onSort: PropTypes.func,
 };
 
 export default RipangaHeadCell;

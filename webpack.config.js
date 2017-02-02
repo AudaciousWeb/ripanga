@@ -1,24 +1,41 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: './src/index.js',
 
   module: {
-    loaders: [
+    rules: [
       {
         loader: 'babel-loader',
         include: [
-          __dirname + '/src'
+          path.join(__dirname, '/src'),
         ],
         test: /\.jsx?$/,
         query: {
           plugins: ['transform-decorators-legacy', 'transform-runtime'],
-          presets: ['latest','react', 'stage-0'],
-        }
+          presets: ['latest', 'react', 'stage-0'],
+        },
       },
       {
-        test: /\.scss$/,
-        loader: 'style-loader!css?localIdentName=[name]__[local]___[hash:base64:5]&modules&importLoaders=1!autoprefixer?browsers=last 2 versions!sass',
+        test: /\.s?[ca]ss$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            importLoaders: 1,
+            localIdentName: '[local]__[path][name]__[hash:base64:5]',
+          },
+        }, {
+          loader: 'autoprefixer-loader',
+          options: {
+            browsers: 'last 2 versions',
+          },
+        }, {
+          loader: 'sass-loader',
+        }],
       },
     ],
   },
@@ -26,20 +43,19 @@ module.exports = {
   output: {
     path: './',
     filename: 'index.js',
-    // publicPath: '/build/',  NOT NEEDED? Ben 161121
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.scss'],
     alias: {
       react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom')
-    }
+      'react-dom': path.resolve('./node_modules/react-dom'),
+    },
   },
 
   externals: {
-    'react': 'umd react',
+    react: 'umd react',
     'react-dom': 'umd react-dom',
   },
 };
