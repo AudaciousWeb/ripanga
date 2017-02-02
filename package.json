@@ -1,6 +1,6 @@
 {
   "name": "ripanga",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Maori-named table.",
   "main": "index.js",
   "scripts": {
