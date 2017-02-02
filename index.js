@@ -2463,6 +2463,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	      if (tableData.length === 0) {
+	        if (this.props.renderEmpty) {
+	          return this.props.renderEmpty();
+	        }
+
 	        return _react2.default.createElement(
 	          'h3',
 	          { className: 'no-borders padding-top empty_table empty_graphic' },
@@ -2539,8 +2543,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  panelPosition: _react.PropTypes.oneOf(['left', 'right', 'none'])
 	}, _class2.defaultProps = {
 	  idKey: 'id',
-	  showCheckboxes: false,
-	  panelPosition: 'right'
+	  panelPosition: 'right',
+	  showCheckboxes: false
 	}, _temp)) || _class;
 
 	exports.default = Ripanga;

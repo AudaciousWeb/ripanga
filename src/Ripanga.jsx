@@ -31,8 +31,8 @@ export default class Ripanga extends React.Component {
 
   static defaultProps = {
     idKey: 'id',
-    showCheckboxes: false,
     panelPosition: 'right',
+    showCheckboxes: false,
   }
 
   constructor(props) {
@@ -329,6 +329,10 @@ export default class Ripanga extends React.Component {
     } = this.props;
 
     if (tableData.length === 0) {
+      if (this.props.renderEmpty) {
+          return this.props.renderEmpty();
+      }
+
       return (
         <h3 className="no-borders padding-top empty_table empty_graphic">
           <img
