@@ -10,6 +10,7 @@ module.exports = {
         include: [
           path.join(__dirname, '/src'),
         ],
+        exclude: /node_modules/,
         test: /\.jsx?$/,
         query: {
           plugins: ['transform-decorators-legacy', 'transform-runtime'],
