@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -46,6 +47,10 @@ module.exports = {
     filename: 'index.js',
     libraryTarget: 'umd',
   },
+  
+  plugins: [
+    new webpack.SourceMapDevToolPlugin(),
+  ],
 
   resolve: {
     extensions: ['.js', '.jsx'],
