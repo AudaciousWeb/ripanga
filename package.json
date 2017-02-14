@@ -1,7 +1,7 @@
 {
   "name": "ripanga",
   "version": "1.0.9",
-  "description": "A Maori-named table.",
+  "description": "A table component with self-managed checkboxes, sticky head, sticky right panel, and horizontal scroll widget.",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV='development' webpack --progress --colors --watch",
