@@ -6,7 +6,6 @@ import RipangaHeadRow from './RipangaHeadRow';
 import RipangaBodyRows from './RipangaBodyRows';
 import RipangaStickyCells from './RipangaStickyCells';
 import RipangaInterface from './RipangaInterface';
-
 import S from './Ripanga.scss';
 
 const i18n = {
